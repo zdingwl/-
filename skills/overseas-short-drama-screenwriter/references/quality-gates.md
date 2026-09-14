@@ -176,7 +176,7 @@ Fail condition:
 □ money and status symbols fit
 □ marriage / inheritance / legal assumptions are checked when important
 □ institutions behave plausibly
-□ dialogue does not sound translated from Chinese
+□ target-language dialogue sounds native
 □ culture is specific without becoming stereotype
 ```
 
@@ -196,7 +196,6 @@ Fail condition:
 
 ```text
 □ scene headings are consistent
-□ action is in present tense
 □ action is filmable
 □ internal thought is converted to action / dialogue where needed
 □ parentheticals are used sparingly
@@ -237,6 +236,31 @@ Fail condition:
 □ ending is not solved by a new coincidence
 ```
 
+## Gate 17 — 中文主稿与外语对白翻译
+
+这是强制 Gate。
+
+```text
+□ 市场分析与策划说明默认中文
+□ 人物设定默认中文
+□ 分集大纲默认中文
+□ 正式剧本场景标题为中文
+□ 正式剧本动作描述为中文
+□ 正式剧本人物说明为中文
+□ 英文对白后逐句附中文翻译
+□ 其他外语对白后逐句附中文翻译
+□ 中文翻译准确表达原句语义
+□ 中文翻译保留语气、情绪和潜台词
+□ 没有遗漏大段纯外语内容
+□ 没有把全部翻译集中放到剧本最后
+```
+
+Fail condition:
+
+> 中文团队需要自己翻译外语对白才能完整理解剧本。
+
+除非用户明确要求纯外语发行稿，否则本 Gate 不允许跳过。
+
 ## Scoring rubric
 
 Score out of 100:
@@ -259,7 +283,7 @@ Setup / payoff                   3
 Total                          100
 ```
 
-Recommended thresholds:
+推荐阈值：
 
 ```text
 90–100  strong final draft candidate
@@ -268,4 +292,4 @@ Recommended thresholds:
 <75     do not call final
 ```
 
-Do not hide a weak total score. Identify the lowest-scoring categories and rewrite them first.
+注意：即使总分超过 90，如果 Gate 17 失败，也不得标记为最终稿。
