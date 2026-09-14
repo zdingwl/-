@@ -1,338 +1,523 @@
-# Quality Gates
+# 质量门槛（Quality Gates）
 
-Run these gates before calling a screenplay complete.
+只有全部硬性 Gate 通过，才能把项目标记为“最终剧本”。
 
-## Gate 0 — 最新市场数据必须来自本次实时检索
+检查顺序必须从**市场与故事结构**开始，再到人物、分集、场景、对白和文字。不要拿对白润色掩盖结构问题。
 
-这是市场驱动项目的最高优先级硬性 Gate。
+---
 
-如果任务包含“最新、当前、近期、榜单、排名、热门、爆款、趋势、增长、市场”等要求，必须满足：
+# Gate 0 — 最新市场数据必须来自本次实时检索【硬性】
+
+如果任务包含或暗示：
 
 ```text
-□ 本次任务中实际进行了外部实时检索
-□ 没有用模型训练数据 / 内置知识代替当前榜单
-□ 目标国家已经明确
-□ 检索日期已经记录
-□ 重要来源有可追溯出处
-□ 重要来源的发布时间 / 更新时间 / 检索时间已核对（能获取时）
-□ 最新排名优先采用当前官方榜单或当前页面
-□ 当前趋势至少有多个当前来源交叉验证，或明确标注证据不足
-□ 180 天以上资料只作为历史背景，不单独证明“当前热门”
-□ 无法验证的当前数据没有被模型记忆补齐
-□ 研究报告明确区分“当前已验证事实”和“基于数据的创作判断”
+最新 / 当前 / 近期 / 本周 / 本月 / 今年
+榜单 / 排名 / Top / 热门 / 爆款 / 趋势
+增长 / 下载 / 收入 / 市场 / 正在流行
 ```
 
-Hard fail conditions:
-
-> 没有联网/外部检索，却声称“这是目前最火的题材”。
-
-> 实时资料不足，于是用模型记忆中的旧榜单补成“最新排名”。
-
-> 使用旧报告证明今天的榜单，却没有检查更近期数据。
-
-> 没有来源或日期依据，却给出精确的当前排名、下载、收入或市场份额。
-
-如果 Gate 0 失败：
+必须满足：
 
 ```text
-不得进入“根据最新市场生成创意”的正式流程；
-不得把结果标记为当前市场结论；
-必须重新检索，或明确说明无法确认最新数据。
+□ 本次任务实际进行了外部实时检索
+□ 没有用模型训练数据 / 内置知识代替当前榜单
+□ 检索日期已记录
+□ 主要来源可追溯
+□ 能获取时已核对发布时间 / 更新时间
+□ 最新排名优先当前官方榜单或当前平台页
+□ 趋势结论尽量有多个当前来源交叉验证
+□ 超过 180 天资料只作背景，不单独证明“当前热门”
+□ 无法确认的数据没有被模型记忆补齐
+□ 报告区分“已验证事实”和“创作判断”
+```
+
+Hard Fail：
+
+> 没有联网检索，却声称“现在最火的是……”
+
+> 查不到最新榜单，于是用模型记忆补齐。
+
+Gate 0 失败时，不得进入“根据最新市场自动选题”的正式流程。
+
+---
+
+# Gate 1 — 目标国家必须明确【硬性】
+
+```text
+□ primary target country 已明确
+□ 不能把“海外 / 欧美 / 英文市场”自动当美国
+□ 多国项目有 primary_country 与 secondary_markets
+□ 语言会影响内容时已确认目标语言
+```
+
+如果国家未知，先询问用户，再进行市场研究和本地化。
+
+---
+
+# Gate 2 — 创意原创性
+
+与市场样本比较：
+
+```text
+□ 标题不同
+□ 主角组合不同
+□ 触发事件没有复制
+□ 核心秘密没有复制
+□ 主要反转顺序没有复制
+□ 高潮机制没有复制
+□ 结局没有复制
+□ 标志性场面没有复制
+```
+
+Fail：
+
+> 本质上是“现有热门剧换名字”。
+
+允许学习 Trope、情绪机制、关系模式和节奏规律，不允许复制独特故事序列。
+
+---
+
+# Gate 3 — Premise / Story Spine
+
+```text
+□ 一句话能够说清主角、目标、阻碍和代价
+□ 主戏剧问题明确
+□ 主题以冲突问题存在，而不是口号
+□ 主角外在 Want 明确
+□ 主角内在 Need 或人物缺口明确
+□ 结局能够回应开篇状态
+```
+
+Fail：
+
+> 只有题材，没有真正的戏剧问题。
+
+---
+
+# Gate 4 — 因果链
+
+对重大 Beat 检查：
+
+```text
+□ 事件有前因
+□ 人物根据已知信息做决定
+□ 决定符合人物性格和压力
+□ 行动产生可辨认后果
+□ 后果制造下一步压力
+□ 简单解决方案已考虑
+□ 剧本说明了为什么不能简单解决
+```
+
+Fail：
+
+> “因为剧情需要。”
+
+巧合可以制造麻烦，但不要解决核心问题。
+
+---
+
+# Gate 5 — Series Engine
+
+```text
+□ 核心关系有持续冲突机制
+□ 除关系外还有外部目标或压力
+□ 秘密 / 信息可以分层推进
+□ 对手会适应主角行动
+□ 主角可以有小胜利和大代价
+□ 解决一次误会后故事仍然成立
+□ 能支撑用户要求的集数
+```
+
+Fail：
+
+> 第 3 集只需要坦白一次，后面所有剧情都没必要。
+
+---
+
+# Gate 6 — 主角主动性
+
+```text
+□ 主角反复做出关键选择
+□ 主角会改变策略
+□ 主角有时会因为自己的选择制造问题
+□ 主要胜利不是别人送来的
+□ 高潮依赖主角最终选择
+```
+
+Fail：
+
+> 主角长期只是受害、等待、被救。
+
+---
+
+# Gate 7 — 对手与冲突升级
+
+```text
+□ 反派 / 阻力有自己的目标
+□ 对手有可信资源和优势
+□ 对手会换招
+□ 后期代价高于前期
+□ 冲突不是同一种羞辱 / 吵架 / 误会反复播放
+```
+
+冲突升级可以是：
+
+```text
+关系伤害
+→ 资源损失
+→ 身份暴露
+→ 法律 / 财务 / 社会后果
+→ 不可逆选择
+```
+
+不要求固定顺序，但必须改变层级或意义。
+
+---
+
+# Gate 8 — 关系推进
+
+```text
+□ 核心关系有清晰起点
+□ 每次靠近或疏远都有事件原因
+□ 信任通过行动建立或损坏
+□ 背叛有铺垫
+□ 和解有代价
+□ 权力关系会改变
+□ 最终关系状态回应情绪承诺
+```
+
+Fail：
+
+> 为了拖集数而机械“爱—恨—爱—恨”。
+
+---
+
+# Gate 9 — 全剧结构
+
+```text
+□ 开头快速建立核心问题
+□ 中段存在真正改变局势的大转折
+□ 重大损失来自前面选择
+□ 后半段不是前半段冲突复制
+□ 高潮汇合主要故事压力
+□ 结局兑现外部剧情、关系和人物弧
+```
+
+结构框架可以灵活选择，不以是否符合某套固定百分比判定好坏。
+
+---
+
+# Gate 10 — 单集功能
+
+每集检查：
+
+```text
+□ 开头有当前戏剧问题
+□ 主角本集有目标
+□ 有明确阻力
+□ 主角采取行动
+□ 局势升级或变化
+□ 至少有一个有效 Turn
+□ 有信息或情绪回报
+□ 关系 / 权力 / 信息 / 风险至少一项改变
+□ 集尾留下具体下一问题
+□ Ending State 不等于 Opening State
+```
+
+Fail：
+
+> 这一集删掉，对全剧几乎没有影响。
+
+---
+
+# Gate 11 — Hook / Payoff / Cliffhanger
+
+```text
+□ Hook 与核心因果有关
+□ Hook 不是随机刺激
+□ 观众不会一直只被拖延
+□ 前面的承诺有周期性兑现
+□ Cliffhanger 是具体事件或后果
+□ 不连续多集使用同一种悬念
+```
+
+推荐：
+
+```text
+Promise
+→ Partial Payoff
+→ Consequence
+→ Bigger Question
 ```
 
 ---
 
-## Gate 1 — Market fit
+# Gate 12 — Scene Contract
+
+每场：
 
 ```text
-□ target country is explicit
-□ target language is explicit when it materially affects localization
-□ current market evidence was researched when required
-□ the concept is not based on one title only
-□ the emotional promise matches the intended audience
-□ saturated tropes have a meaningful differentiator
+□ 有人明确想得到某件东西
+□ 有人 / 环境阻止
+□ 人物采取策略
+□ 对方或环境反制
+□ 场景存在戏剧问题
+□ 至少一个价值发生变化
+□ 场景结果导致下一步行动或压力
 ```
 
-Fail condition:
+Fail：
 
-> The story is described as “popular overseas” without current evidence or without defining which overseas market.
+> 场景只是人物站着解释背景。
 
-## Gate 2 — Originality
+---
 
-Compare against research samples:
+# Gate 13 — Scene Value / Scene Economy
 
 ```text
-□ title is distinct
-□ protagonist combination is distinct
-□ inciting incident is not copied
-□ central secret is not copied
-□ major reveal sequence is not copied
-□ climax is not copied
-□ ending is not copied
-□ distinctive set pieces are not copied
+□ 场景前后状态不同
+□ 删除该场会损伤剧情、人物或信息链
+□ 尽量一场完成两个以上有效任务
+□ 尽量晚进早出
+□ 没有重复上一场已经完成的功能
 ```
 
-Fail condition:
-
-> The project can be summarized as “existing title with changed names.”
-
-## Gate 3 — Story engine
+常见价值变化：
 
 ```text
-□ protagonist has a concrete goal
-□ opposing force has a concrete goal
-□ stakes are clear
-□ central relationship has a conflict engine
-□ external story exists beyond a single misunderstanding
-□ secrets / reveals can escalate rather than repeat
-□ the story can sustain the requested episode count
+信任→怀疑
+安全→危险
+优势→劣势
+无知→知道
+隐藏→暴露
+亲近→疏离
 ```
 
-Fail condition:
+---
 
-> One honest conversation in Episode 3 would permanently solve the series.
-
-## Gate 4 — Protagonist agency
+# Gate 14 — 对白是行动
 
 ```text
-□ protagonist makes consequential decisions
-□ protagonist sometimes causes their own problems
-□ protagonist changes tactics after failure
-□ protagonist earns major wins
-□ climax depends on protagonist choice
+□ 重要台词有明确目的
+□ 台词在试探、逼迫、隐瞒、说服、攻击、拒绝或改变关系
+□ 解说没有脱离场景行动
+□ 角色不会互相复述双方都知道的历史
+□ 重要信息尽量作为筹码进入冲突
 ```
 
-Fail condition:
+Fail：
 
-> The lead only suffers, waits, and gets rescued.
+> 角色主要负责替作者讲剧情。
 
-## Gate 5 — Episode function
+---
 
-For every episode:
+# Gate 15 — 潜台词与人物声音
 
 ```text
-□ opening contains a current dramatic question
-□ protagonist wants something now
-□ an obstacle appears
-□ conflict escalates or changes
-□ at least one meaningful turn occurs
-□ audience receives information or emotional value
-□ ending creates a specific next question
-□ episode state differs from opening state
+□ 说出来的内容不总等于真正目的
+□ 重要场景允许沉默、回避、打断和答非所问
+□ 核心人物句长、词汇和攻击方式有差异
+□ 删除角色名后，主要角色仍有一定辨识度
+□ 每个人没有同样成熟、完整、漂亮的说话方式
 ```
 
-Fail condition:
+---
 
-> Episode exists only to repeat a conflict from the previous episode.
-
-## Gate 6 — Scene function
-
-For every scene:
+# Gate 16 — Visual / Sound-Off Test
 
 ```text
-□ someone wants something
-□ someone / something blocks them
-□ the scene contains behavior, not pure explanation
-□ at least one value changes
-□ new information or consequence appears
-□ deleting the scene would damage the story
+□ 重要场景不完全依靠对白传递意义
+□ 物件、距离、动作、位置或选择承担部分信息
+□ 动作是可见、可演的
+□ 没有用大量情绪形容词代替行为
+□ 静音后仍能大致判断谁占优势以及发生了什么变化
 ```
 
-Merge or delete scenes that fail repeatedly.
+不要求“完全静音也能理解全部剧情”，而是防止剧本变成广播剧。
 
-## Gate 7 — Causality
+---
 
-For each major beat:
+# Gate 17 — Setup / Payoff 与信息控制
 
 ```text
-□ the event has a cause
-□ the character's choice fits their knowledge
-□ the choice fits their personality and pressure
-□ the consequence follows logically
-□ a simpler solution has been considered
-□ the script explains why that simpler solution is unavailable
+□ 重大 Setup 有记录
+□ 重要反转前有公平证据
+□ 伏笔没有被遗忘
+□ 关键物件有功能
+□ 角色不会使用自己还不知道的信息
+□ 观众知道 / 人物知道的差异是有意设计的
 ```
 
-Fail condition:
+---
 
-> “Because the plot needs it.”
+# Gate 18 — 连续性
 
-## Gate 8 — Escalation
+检查：
 
 ```text
-□ conflict changes level or meaning
-□ antagonist adapts
-□ victories create consequences
-□ setbacks are not identical
-□ later episodes cost more than early episodes
+时间
+地点
+人物位置
+伤势
+身体状态
+物件所有权
+金钱 / 资源
+人物关系
+秘密
+身份
+法律限制
+年龄 / 日期
+怀孕时间（如相关）
+超自然规则（如相关）
 ```
 
-Fail condition:
+多集项目必须维护 Handoff State / Story Bible。
 
-> The same humiliation / misunderstanding / argument is replayed with different wording.
+---
 
-## Gate 9 — Relationship progression
+# Gate 19 — 本地化真实性
 
 ```text
-□ relationship states visibly change
-□ attraction and conflict both have causes
-□ trust is earned or damaged through action
-□ betrayal has setup
-□ reconciliation has cost
-□ final relationship state answers the story promise
+□ 地理合理
+□ 人名符合目标市场
+□ 职业行为可信
+□ 阶层符号符合当地
+□ 家庭权力有现实机制
+□ 恋爱 / 婚姻行为符合当地文化
+□ 重要法律 / 医疗 / 学校 / 警务逻辑已查证
+□ 金额和货币不明显荒谬
+□ 目标语言对白不像中文直译
+□ 文化具体但不靠刻板印象
 ```
 
-Fail condition:
+---
 
-> Characters alternate between love and hate only to stretch runtime.
+# Gate 20 — 中文主稿与外语翻译【硬性】
 
-## Gate 10 — Information control
+除非用户明确要求纯外语发行稿：
 
 ```text
-□ character knowledge is tracked
-□ audience knowledge is intentionally managed
-□ no character knows unlearned information
-□ reveals change behavior
-□ secrets are neither forgotten nor repeated endlessly
+□ 市场分析中文
+□ 人物设定中文
+□ 分集大纲中文
+□ 场景说明中文
+□ 动作中文
+□ 英文对白逐句有中文翻译
+□ 其他外语对白逐句有中文翻译
+□ 中文译文保留语义、语气和潜台词
+□ 没有大段纯外语遗漏
 ```
 
-## Gate 11 — Setup / payoff
+Fail：
+
+> 中文团队必须自己翻译才能完整理解剧本。
+
+---
+
+# Gate 21 — Anti-AI
 
 ```text
-□ major setup ledger is current
-□ important objects have purpose
-□ promises are paid off
-□ abandoned setups are intentionally removed or resolved
-□ final climax uses earlier setup where appropriate
+□ 没有大量“然而 / 与此同时 / 他意识到”模板句
+□ 没有“命运的齿轮 / 一切才刚刚开始”式万能句
+□ 不同角色不是同一个 AI 声音
+□ 不连续重复相同场景结构
+□ 不靠情绪形容词堆积制造“戏剧感”
+□ 不每场都先解释背景再开始冲突
+□ 不每集都用同类假悬念收尾
+□ 没有为套结构而添加无因果事件
 ```
 
-## Gate 12 — Localization
+---
+
+# Gate 22 — 剧本边界
+
+除非用户明确要求：
 
 ```text
-□ setting is geographically coherent
-□ names fit the target market
-□ occupations are plausible
-□ family power has a believable mechanism
-□ money and status symbols fit
-□ marriage / inheritance / legal assumptions are checked when important
-□ institutions behave plausibly
-□ target-language dialogue sounds native
-□ culture is specific without becoming stereotype
+□ 无分镜
+□ 无景别
+□ 无运镜
+□ 无焦段
+□ 无图片提示词
+□ 无视频提示词
+□ 无 H3 / 模型参数
+□ 无剪辑方案
 ```
 
-## Gate 13 — Dialogue
+本 Skill 只负责完整剧本。
+
+---
+
+# Gate 23 — Revision Root Issue
+
+终稿前先问：
+
+> 当前版本最大的根问题是什么？
+
+修改优先级：
 
 ```text
-□ major characters sound different
-□ dialogue has objectives
-□ exposition is embedded in conflict
-□ lines are speakable
-□ repeated information is cut
-□ emotional statements are not duplicating visible action
-□ target-language idiom is natural
+1. Premise / Story Engine
+2. 因果与结构
+3. 人物主动性与关系
+4. 分集节奏
+5. 场景功能
+6. 对白
+7. 本地化
+8. 连续性
+9. 格式 / 措辞
 ```
 
-## Gate 14 — Screenplay format
+禁止先花大量时间修台词，最后才发现整段剧情根本不成立。
+
+每个重要修改项记录：
+
+```yaml
+revision_issue:
+  problem:
+  evidence:
+  impact:
+  root_cause:
+  fix_direction:
+  protected_elements:
+  result_after_fix:
+```
+
+---
+
+# 最终评分（100 分）
 
 ```text
-□ scene headings are consistent
-□ action is filmable
-□ internal thought is converted to action / dialogue where needed
-□ parentheticals are used sparingly
-□ screenplay is not polluted with storyboard / camera / generation prompts
+市场证据与目标匹配        8
+原创差异化                7
+Premise / Story Spine      8
+Series Engine             10
+主角主动性                 8
+人物与关系                 9
+因果逻辑                  10
+全剧结构                   8
+分集结构                   8
+场景设计                   8
+对白 / 潜台词              6
+本地化                     4
+连续性                     3
+Setup / Payoff             3
+-----------------------------
+总分                     100
 ```
 
-## Gate 15 — Continuity
-
-Check:
+建议：
 
 ```text
-time
-location
-injuries
-clothing only when plot-relevant
-possessions
-money
-relationships
-secrets
-identities
-legal constraints
-pregnancy / age / dates where relevant
-supernatural rules
+90–100  可作为强终稿候选
+83–89   可用，但先修最低分项
+75–82   需要结构性修订
+<75     不得标记最终稿
 ```
 
-Fail condition:
+即使总分超过 90，只要以下任一硬性 Gate 失败，也不得标记最终稿：
 
-> A later scene contradicts locked story facts without explanation.
-
-## Gate 16 — Ending
-
-```text
-□ central dramatic question is answered
-□ external plot is resolved or intentionally opened
-□ central relationship reaches a meaningful final state
-□ protagonist's final choice proves the arc
-□ climax is earned from prior setup
-□ ending is not solved by a new coincidence
-```
-
-## Gate 17 — 中文主稿与外语对白翻译
-
-这是强制 Gate。
-
-```text
-□ 市场分析与策划说明默认中文
-□ 人物设定默认中文
-□ 分集大纲默认中文
-□ 正式剧本场景标题为中文
-□ 正式剧本动作描述为中文
-□ 正式剧本人物说明为中文
-□ 英文对白后逐句附中文翻译
-□ 其他外语对白后逐句附中文翻译
-□ 中文翻译准确表达原句语义
-□ 中文翻译保留语气、情绪和潜台词
-□ 没有遗漏大段纯外语内容
-□ 没有把全部翻译集中放到剧本最后
-```
-
-Fail condition:
-
-> 中文团队需要自己翻译外语对白才能完整理解剧本。
-
-除非用户明确要求纯外语发行稿，否则本 Gate 不允许跳过。
-
-## Scoring rubric
-
-Score out of 100:
-
-```text
-Premise / concept strength       8
-Market / audience fit            8
-Original differentiation        8
-Protagonist agency              10
-Character consistency            8
-Relationship engine             10
-Causality                       10
-Episode architecture            10
-Scene efficiency                 8
-Dialogue                         8
-Localization                     5
-Continuity                       4
-Setup / payoff                   3
--------------------------------
-Total                          100
-```
-
-推荐阈值：
-
-```text
-90–100  strong final draft candidate
-82–89   usable but revise weak categories
-75–81   structural revision required
-<75     do not call final
-```
-
-注意：
-
-- 即使总分超过 90，如果 Gate 0 失败，不得声称创意基于“最新市场”。
-- 即使总分超过 90，如果 Gate 17 失败，也不得标记为最终中文交付稿。
+- Gate 0 最新数据真实性
+- Gate 1 目标国家
+- Gate 2 严重原创性风险
+- Gate 20 中文主稿 / 外语翻译
