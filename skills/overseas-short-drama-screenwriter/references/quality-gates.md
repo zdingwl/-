@@ -2,11 +2,51 @@
 
 Run these gates before calling a screenplay complete.
 
+## Gate 0 — 最新市场数据必须来自本次实时检索
+
+这是市场驱动项目的最高优先级硬性 Gate。
+
+如果任务包含“最新、当前、近期、榜单、排名、热门、爆款、趋势、增长、市场”等要求，必须满足：
+
+```text
+□ 本次任务中实际进行了外部实时检索
+□ 没有用模型训练数据 / 内置知识代替当前榜单
+□ 目标国家已经明确
+□ 检索日期已经记录
+□ 重要来源有可追溯出处
+□ 重要来源的发布时间 / 更新时间 / 检索时间已核对（能获取时）
+□ 最新排名优先采用当前官方榜单或当前页面
+□ 当前趋势至少有多个当前来源交叉验证，或明确标注证据不足
+□ 180 天以上资料只作为历史背景，不单独证明“当前热门”
+□ 无法验证的当前数据没有被模型记忆补齐
+□ 研究报告明确区分“当前已验证事实”和“基于数据的创作判断”
+```
+
+Hard fail conditions:
+
+> 没有联网/外部检索，却声称“这是目前最火的题材”。
+
+> 实时资料不足，于是用模型记忆中的旧榜单补成“最新排名”。
+
+> 使用旧报告证明今天的榜单，却没有检查更近期数据。
+
+> 没有来源或日期依据，却给出精确的当前排名、下载、收入或市场份额。
+
+如果 Gate 0 失败：
+
+```text
+不得进入“根据最新市场生成创意”的正式流程；
+不得把结果标记为当前市场结论；
+必须重新检索，或明确说明无法确认最新数据。
+```
+
+---
+
 ## Gate 1 — Market fit
 
 ```text
 □ target country is explicit
-□ target language is explicit
+□ target language is explicit when it materially affects localization
 □ current market evidence was researched when required
 □ the concept is not based on one title only
 □ the emotional promise matches the intended audience
@@ -292,4 +332,7 @@ Total                          100
 <75     do not call final
 ```
 
-注意：即使总分超过 90，如果 Gate 17 失败，也不得标记为最终稿。
+注意：
+
+- 即使总分超过 90，如果 Gate 0 失败，不得声称创意基于“最新市场”。
+- 即使总分超过 90，如果 Gate 17 失败，也不得标记为最终中文交付稿。
