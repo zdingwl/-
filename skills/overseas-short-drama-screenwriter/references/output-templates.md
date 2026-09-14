@@ -1,10 +1,10 @@
-# 输出模板（中文主稿）
+# 输出模板（全中文默认）
 
 本文件统一规定所有可见交付物的默认语言和格式。
 
 ## 0. 强制语言规则
 
-默认交付语言：**中文**。
+默认交付语言：简体中文。
 
 即使目标市场是美国、英国、加拿大、澳大利亚等英语市场，以下内容仍默认用中文：
 
@@ -16,11 +16,13 @@
 - 分集大纲
 - 场景描述
 - 动作描述
+- 对白
 - 完整剧本正文
+- 修订报告
 
-如果对白使用英语或其他外语，必须紧跟中文翻译。
+只有用户明确要求英文版、外语版或中外语对照时，才生成外语内容。
 
-禁止把“英文剧本”作为默认主稿。
+禁止把外语剧本作为默认主稿。
 
 ---
 
@@ -30,17 +32,16 @@
 # 海外市场趋势摘要
 
 目标国家：
-目标语言：
 目标平台：
 目标观众：
 研究日期：
 研究周期：
 数据来源：
 
-## 当前头部作品 / 题材
+## 当前头部作品与题材
 - ...
 
-## 高频题材与 Trope
+## 高频题材
 - ...
 
 ## 高频人物关系
@@ -66,43 +67,45 @@
 2. ...
 3. ...
 
-置信度 / 数据限制：
+数据可信度与限制：
 ...
 ```
 
-## 2. Creative Brief
+---
+
+## 2. 创作简报
 
 ```yaml
-creative_brief:
-  target_country:
-  target_language:
-  target_platform:
-  target_audience:
-  genre:
-  subgenre:
-  tone:
-  primary_emotion:
-  secondary_emotion:
-  audience_fantasy:
-  current_market_signal:
-  saturated_elements_to_avoid:
-  opportunity_gap:
-  protagonist_type:
-  relationship_type:
-  external_story_engine:
-  differentiation:
-  localization_notes:
-  production_constraints:
-  script_output_language: zh-CN
-  dialogue_mode: chinese | bilingual | target-language-only
+创作简报:
+  目标国家:
+  目标平台:
+  目标观众:
+  主类型:
+  子类型:
+  整体气质:
+  核心情绪:
+  次级情绪:
+  观众幻想:
+  当前市场信号:
+  需要避免的饱和元素:
+  市场机会空白:
+  主角类型:
+  核心关系:
+  外部故事发动机:
+  原创差异:
+  本地化注意事项:
+  制作限制:
+  剧本输出语言: 简体中文
+  对白输出语言: 简体中文
 ```
+
+---
 
 ## 3. 创意池
 
 ```text
 # 创意 01
 中文暂定名：
-英文暂定名：
 类型：
 目标观众：
 一句话故事：
@@ -111,7 +114,7 @@ creative_brief:
 外部目标：
 核心冲突：
 核心秘密：
-开篇 Hook：
+开篇钩子：
 最大反转：
 情绪承诺：
 连载发动机：
@@ -124,20 +127,21 @@ creative_brief:
 ...
 ```
 
-## 4. 项目 Bible
+---
+
+## 4. 项目设定总表
 
 ```text
 # 项目基础
 
 中文名：
-英文名：
 目标市场：
 类型：
 调性：
 集数：
 单集时长：
 
-# Logline
+# 一句话故事
 ...
 
 # 核心戏剧问题
@@ -156,57 +160,62 @@ creative_brief:
 ...
 ```
 
-## 5. 人物 Bible
+---
+
+## 5. 人物设定
 
 ```yaml
-character:
-  name_zh:
-  name_original:
-  age:
-  nationality:
-  city:
-  profession:
-  socioeconomic_position:
-  public_identity:
-  hidden_identity:
-  external_goal:
-  internal_need:
-  fear:
-  wound:
-  flaw:
-  strength:
-  secret:
-  leverage:
-  false_belief:
-  contradiction:
-  opening_state:
-  breaking_point:
-  final_choice:
-  ending_state:
-  arc:
-  speaking_style:
+人物:
+  姓名:
+  年龄:
+  国籍:
+  城市:
+  职业:
+  社会经济位置:
+  公开身份:
+  隐藏身份:
+  外在目标:
+  内在需求:
+  恐惧:
+  创伤:
+  缺点:
+  优点:
+  秘密:
+  筹码:
+  错误信念:
+  内在矛盾:
+  开场状态:
+  崩溃点:
+  最终选择:
+  结局状态:
+  人物弧光:
+  说话方式:
 ```
 
-## 6. 人物关系 Bible
+---
+
+## 6. 人物关系设定
 
 ```yaml
-relationship:
-  character_a:
-  character_b:
-  surface_relationship:
-  hidden_truth:
-  what_a_wants:
-  what_b_wants:
-  attraction_or_dependency:
-  power_balance:
-  conflict_of_interest:
-  unequal_information:
-  breaking_point:
-  transformation:
-  final_state:
+人物关系:
+  人物甲:
+  人物乙:
+  表面关系:
+  隐藏真相:
+  人物甲想从人物乙得到什么:
+  人物乙想从人物甲得到什么:
+  吸引或依赖:
+  权力关系:
+  利益冲突:
+  信息差:
+  关系破裂点:
+  关系变化:
+  最终状态:
 ```
 
-## 7. Story Engine
+---
+
+## 7. 连载故事发动机
 
 ```text
 # 关系发动机
@@ -215,7 +224,7 @@ relationship:
 # 外部目标发动机
 ...
 
-# 秘密 / 信息发动机
+# 秘密与信息发动机
 ...
 
 # 反派发动机
@@ -224,6 +233,8 @@ relationship:
 # 为什么能够支撑目标集数
 ...
 ```
+
+---
 
 ## 8. 全剧结构
 
@@ -254,82 +265,90 @@ relationship:
 阶段 7 — 真相汇合
 ...
 
-阶段 8 — 最终选择 / 高潮
+阶段 8 — 最终选择与高潮
 ...
 
 阶段 9 — 情绪兑现
 ...
 ```
 
+---
+
 ## 9. 分集大纲
 
 ```yaml
-episode:
-  number: 1
-  title_zh:
-  opening_state:
-  opening_hook:
-  protagonist_goal:
-  obstacle:
-  key_action:
-  escalation:
-  reveal_or_reversal:
-  emotional_payoff:
-  relationship_shift:
-  cliffhanger:
-  ending_state:
-  next_question:
+单集:
+  集数: 1
+  标题:
+  开场状态:
+  开场钩子:
+  主角目标:
+  阻碍:
+  关键行动:
+  升级:
+  揭秘或反转:
+  情绪兑现:
+  关系变化:
+  结尾悬念:
+  结束状态:
+  下一集问题:
 ```
 
-## 10. 单集 Beat Sheet
+---
+
+## 10. 单集剧情节拍
 
 ```text
 # 第 XX 集
 
 本集作用：
-开篇 Hook：
+开篇钩子：
 核心戏剧问题：
 
-Beat 1 — ...
+节拍 1 — ...
 原因：
 行动：
 结果：
 
-Beat 2 — ...
+节拍 2 — ...
 原因：
 行动：
 结果：
 
-Beat 3 — ...
+节拍 3 — ...
 ...
 
 情绪回报：
 关系变化：
-结尾 Cliffhanger：
+结尾悬念：
 连续性更新：
 ```
 
-## 11. Scene List
+---
+
+## 11. 场景清单
 
 ```yaml
-scene:
-  id: E01-S01
-  scene_heading_zh:
-  characters:
-  pov:
-  goal:
-  opposing_force:
-  tactic:
-  conflict:
-  reveal:
-  turn:
-  value_before:
-  value_after:
-  result:
-  exit_question:
+场景:
+  编号: 第1集-场1
+  场景标题:
+  出场人物:
+  视角人物:
+  目标:
+  阻碍力量:
+  策略:
+  冲突:
+  新信息:
+  转折:
+  场景前状态:
+  场景后状态:
+  结果:
+  离场问题:
 ```
 
-## 12. 完整剧本 — 中文主稿（默认）
+---
+
+## 12. 完整剧本（默认）
 
 ```text
 第1集
@@ -353,94 +372,49 @@ scene:
 ——第1集结束——
 ```
 
-此格式为默认格式。
+这是默认交付格式。
 
-不要附加分镜、生图或视频提示词。
+不要附加分镜、生图提示词或视频提示词。
 
-## 13. 完整剧本 — 中文主稿 + 英文对白对照
+---
 
-目标市场为英语国家、且项目需要英文对白时，使用：
+## 13. 外语版本规则
 
-```text
-第1集
+只有用户明确提出需要英文版、其他外语版或中外语对照时，才生成对应版本。
 
-场次 1
-内景｜纽约 · 艾玛公寓｜夜
-
-艾玛停在门口。
-
-一双陌生的红色高跟鞋，紧挨着丹尼尔的皮鞋。
-
-艾玛（EMMA）
-英文：Daniel?
-中文：丹尼尔？
-
-卧室门打开。
-
-丹尼尔（DANIEL）
-英文：Emma, I can explain.
-中文：艾玛，我可以解释。
-
-艾玛盯着他，没有进去。
-
-艾玛（EMMA）
-英文：Then start with her shoes.
-中文：那就先解释一下她的鞋。
-```
-
-规则：
-
-1. 场景标题用中文。
-2. 动作描述用中文。
-3. 人物说明用中文。
-4. 英文对白先写符合当地口语习惯的自然英语。
-5. 每句英文后立刻给中文翻译。
-6. 中文翻译要准确传达情绪和潜台词，不要求逐词直译。
-7. 不允许把整场英文对白集中到剧尾再翻译。
-8. 不允许漏译任何外语台词。
-
-## 14. 其他外语对白
-
-如果目标语言是西班牙语、葡萄牙语、法语等，同样采用：
+用户没有明确要求时：
 
 ```text
-角色名
-西语：...
-中文：...
+不主动附英文标题
+不主动附英文人物名
+不主动附英文对白
+不主动附外语对照
 ```
 
-或：
+---
 
-```text
-角色名
-葡语：...
-中文：...
-```
-
-任何外语对白都必须有中文对照，除非用户明确要求纯外语发行稿。
-
-## 15. Continuity Update
-
-每集结束后维护：
+## 14. 每集连续性更新
 
 ```yaml
-continuity_update:
-  episode:
-  current_time:
-  character_locations:
-  injuries:
-  possessions:
-  relationship_changes:
-  new_information_by_character:
-  secrets_revealed:
-  setups_planted:
-  setups_paid:
-  unresolved_questions:
-  legal_or_financial_changes:
-  supernatural_rule_changes:
+连续性更新:
+  集数:
+  当前剧中时间:
+  人物位置:
+  伤势:
+  持有物:
+  关系变化:
+  各人物新增信息:
+  已公开秘密:
+  本集新增伏笔:
+  本集回收伏笔:
+  未解决问题:
+  法律或财务变化:
+  超自然规则变化:
 ```
 
-## 16. 修改报告
+---
+
+## 15. 修改报告
 
 ```text
 # 剧本修改报告
@@ -459,7 +433,7 @@ continuity_update:
 ## 人物问题
 - ...
 
-## 单集 / 留存问题
+## 单集与留存问题
 - ...
 
 ## 对白问题
@@ -474,9 +448,6 @@ continuity_update:
 ## 原创风险
 - ...
 
-## 外语对白翻译遗漏
-- ...
-
 ## 已完成修改
 - ...
 
@@ -484,36 +455,37 @@ continuity_update:
 - ...
 ```
 
-## 17. 完整项目交付包
+---
+
+## 16. 完整项目交付包
 
 默认：
 
 ```text
 01 海外市场趋势摘要
-02 Creative Brief
+02 创作简报
 03 原创创意池
 04 最终选题
 05 完整故事梗概
-06 人物 Bible
-07 人物关系 Bible
-08 Story Engine
+06 人物设定
+07 人物关系设定
+08 连载故事发动机
 09 全剧结构
 10 完整分集大纲
-11 Episode Beat Sheets
+11 单集剧情节拍
 12 完整中文主剧本
-13 英文 / 外语对白逐句中文对照（存在外语时）
-14 Continuity Bible
-15 修改 / 质量报告
+13 连续性设定总表
+14 修改与质量报告
 ```
 
 用户如果只要求“完整剧本”，只交付完整剧本即可，不要强迫展示全部规划文档。
 
-## 18. 权威版本规则
+---
+
+## 17. 权威版本规则
 
 默认情况下：
 
-> **中文主剧本是用户审阅和后续制作的权威版本。**
+> 中文完整剧本是用户审阅和后续制作的权威版本。
 
-外语对白用于目标市场语言真实性，但必须保留中文翻译。
-
-只有用户明确说“请给我纯英文最终发行稿”时，纯英文版本才可单独交付。
+只有用户明确要求外语最终发行稿时，才单独生成外语版本。
