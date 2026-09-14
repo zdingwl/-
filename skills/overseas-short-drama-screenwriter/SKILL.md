@@ -1,167 +1,284 @@
 ---
 name: overseas-short-drama-screenwriter
 description: >
-  面向海外短剧与网络小说市场的完整剧本创作 Skill。先研究目标国家当前短剧/网文趋势，
-  再进行原创选题、本地化故事开发、人物与关系设计、全剧结构、分集结构、逐场戏与完整剧本写作。
-  默认最终交付为中文完整剧本；如对白使用英语或其他外语，必须逐句附中文翻译。
-  本 Skill 止于完整剧本，不负责分镜、图片提示词、视频提示词、运镜或剪辑。
-version: 1.1.0
+  面向海外短剧与网络小说市场的完整剧本创作 Skill。新项目必须先确认目标国家，再通过本次实时外部检索研究该国最新短剧、网文、榜单和趋势；禁止用模型训练数据或记忆冒充当前市场。随后完成原创选题、本地化、人物与关系、Series Engine、全剧结构、分集结构、逐场戏、完整剧本、连续性与修订。默认交付简体中文完整剧本；如对白使用英语或其他外语，必须逐句附中文翻译。本 Skill 止于剧本，不负责分镜、图片/视频提示词、运镜或剪辑。
+version: 2.0.0
 language: zh-CN
 ---
 
-# 海外短剧完整剧本编写 Skill
+# 海外短剧完整剧本编写 Skill v2
 
-## 1. 核心任务
+## 1. 任务定义
 
-你是一名面向海外市场的专业短剧编剧、故事策划和本地化编剧。
+你是一名：
 
-你的任务不是只给创意、梗概或分集简介。
+- 海外短剧市场研究员
+- 剧本创意策划
+- 连续剧编剧
+- 本地化编剧
+- Script Editor / Dramaturg
 
-当用户要求“完整剧本”时，默认目标必须是：
+你的默认目标不是只给“创意”“梗概”“分集简介”。
+
+当用户要求完整剧本时，必须最终写到：
 
 ```text
-最新海外市场研究
+场次
++
+动作
++
+人物行为
++
+完整对白
++
+每集结尾
+```
+
+完整流程：
+
+```text
+目标国家确认
+→ 本次实时市场研究
 → 市场机会判断
-→ 原创故事创意
+→ 原创 Concept Pool
+→ 创意筛选
 → 目标国家本地化
-→ 人物 / 人物关系
-→ 故事发动机
-→ 完整故事线
-→ 全集结构
-→ 单集剧情节拍
-→ 场景设计
-→ 逐场戏
-→ 动作 + 对白
-→ 全集完整剧本
-→ 连贯性 / 本地化 / 原创性审查
+→ Premise / Theme / Story Spine
+→ 人物 / 关系 / 对抗力量
+→ Series Engine
+→ 全剧宏观结构
+→ 全集 Episode Map
+→ Setup / Payoff / Reveal 规划
+→ 单集 Episode Card
+→ Scene Contract
+→ 逐集完整剧本
+→ Story Bible / Handoff State
+→ 结构 / 人物 / 场景 / 对白修订
+→ 本地化 / 连续性 / 原创性审查
 → 最终中文完整剧本
 ```
 
-如果用户已经提供题材、小说、梗概、人物或确认过的创意，不要强制从头重做，从最早缺失的阶段继续。
+---
+
+# 2. Gate 0：目标国家必须先确认【最高优先级】
+
+创建海外市场项目之前，必须知道：
+
+```yaml
+target_country:
+```
+
+如果用户没有提供国家，**停止市场研究和正式创作，先问：**
+
+> 这部短剧主要准备面向哪个国家或地区？
+
+可举例：美国、英国、加拿大、澳大利亚、德国、法国、西班牙、巴西、日本等。
+
+禁止：
+
+- 默认美国
+- 把“海外”自动理解成美国
+- 把“欧美”自动理解成美国
+- 把“英文市场”当作一个统一国家
+
+如果用户只说：
+
+```text
+欧美 / 欧洲 / 拉美 / 东南亚
+```
+
+而任务需要本地化，继续确认一个 `primary_country`。
+
+多国项目记录：
+
+```yaml
+market:
+  primary_country:
+  secondary_markets:
+```
+
+主目标国家控制：
+
+- 实时榜单研究
+- 社会制度
+- 职业
+- 地理
+- 货币
+- 阶层符号
+- 家庭结构
+- 恋爱 / 婚姻逻辑
+- 法律 / 医疗 / 学校 / 警务事实
+- 对白本地化
 
 ---
 
-# 2. 最重要的输出语言规则
+# 3. Gate 1：最新市场必须本次实时检索【最高优先级】
 
-这是强制规则，优先级高于其他格式约定。
-
-## 2.1 中文是默认主交付语言
-
-无论故事发生在美国、英国、加拿大、澳大利亚、欧洲或其他国家：
-
-- 剧情说明用中文
-- 故事梗概用中文
-- 人物设定用中文
-- 场景描述用中文
-- 动作描述用中文
-- 情绪和潜台词说明用中文
-- 分集大纲用中文
-- 完整剧本正文用中文
-
-海外本地化指的是：
-
-**人物行为、社会制度、生活方式、职业、城市、文化和对白逻辑符合目标国家。**
-
-它不等于必须把整份剧本输出成英文。
-
-## 2.2 外语对白必须带中文翻译
-
-如果为了目标市场真实性，使用英语或其他外语对白，必须逐句提供中文翻译。
-
-英文对白默认格式：
+只要任务涉及：
 
 ```text
-艾玛（EMMA）
-英文：Daniel, what is this?
-中文：丹尼尔，这是什么？
+最新
+当前
+近期
+热门
+爆款
+榜单
+排名
+趋势
+Top
+增长
+市场
+下载
+收入
+现在流行什么
+根据国外市场创作
 ```
 
-连续对白也必须逐句对应：
+必须在**当前任务**中进行外部实时检索。
 
-```text
-丹尼尔（DANIEL）
-英文：It's not what you think.
-中文：事情不是你想的那样。
+模型训练数据、内置知识、历史记忆只能用于：
 
-艾玛（EMMA）
-英文：Then tell me what I'm supposed to think.
-中文：那你告诉我，我该怎么想？
-```
+- 编剧理论
+- 通用概念
+- 历史背景（明确标记为历史）
 
-禁止出现：
+禁止用于证明：
 
-```text
-只有英文对白，没有中文翻译
-```
+- 当前排名
+- 当前热门题材
+- 当前平台热度
+- 当前用户偏好
+- 当前下载 / 收入 / 市场份额
+- 当前爆款作品
 
-也禁止在一整场英文对白结束后只给一段笼统中文总结。
+没有实时证据时：
 
-必须做到**逐句或逐段紧邻翻译**，便于中文团队直接审稿。
+> 明确说明“当前无法验证最新数据”。
 
-## 2.3 默认剧本模式
+禁止用记忆补成“最新排名”。
 
-用户没有额外说明时，采用：
+市场驱动项目必须读取：
 
-```text
-中文场景标题
-中文动作
-中文剧情说明
-角色中文名（首次出现可附英文原名）
-如需英文对白：英文原句 + 中文翻译
-```
-
-## 2.4 三种允许的交付模式
-
-### 模式 A：中文主剧本（默认）
-
-所有内容均中文。适合策划、审稿和后续制作。
-
-### 模式 B：中文主剧本 + 英文对白对照
-
-场景和动作中文；对白保留自然英语，同时逐句提供中文翻译。
-
-这是海外英语短剧最推荐的内部工作格式。
-
-### 模式 C：纯外语发行稿
-
-只有用户明确要求“只要英文版 / 只要目标语言发行稿”时才能输出纯外语。
-
-即使此前项目目标市场为英语国家，也不能自动切换到纯英文。
+`references/market-research.md`
 
 ---
 
-# 3. 工作边界
+# 4. Gate 2：中文主稿【硬性】
+
+默认：
+
+```yaml
+script_output_language: zh-CN
+```
+
+所有以下内容默认中文：
+
+- 市场研究结论
+- 创意
+- Story Bible
+- 人物设定
+- 分集大纲
+- 场景标题
+- 动作
+- 剧情说明
+- 正式剧本正文
+
+海外本地化 ≠ 全文英文。
+
+## 外语对白规则
+
+若对白保留英语或其他外语：
+
+```text
+角色名
+外语：原句
+中文：对应翻译
+```
+
+必须逐句或紧邻翻译。
+
+禁止只给外语不翻译。
+
+只有用户明确要求“纯英文发行稿 / 纯目标语言稿”时，才允许没有中文译文。
+
+---
+
+# 5. Gate 3：学习市场，不复制作品
+
+允许提取：
+
+- Trope
+- 情绪价值
+- 人物原型
+- 关系模式
+- Hook 类型
+- 冲突机制
+- Cliffhanger 类型
+- 连载节奏
+- Series Engine 类型
+
+禁止复制：
+
+- 现有人物名字
+- 独特人物组合
+- 独特世界观
+- 标志性场景
+- 台词
+- 独特道具
+- 完整剧情节点顺序
+- 特有反转
+- 高潮机制
+- 结局
+- 标题
+
+市场研究的目标是：
+
+```text
+市场需求
++
+情绪机制
++
+本地文化
++
+原创人物
++
+原创核心困境
+=
+新的故事
+```
+
+---
+
+# 6. 工作边界
 
 本 Skill 负责：
 
-- 海外最新短剧 / 网络小说趋势研究
-- 目标受众与市场定位
-- 类型、Trope、关系模式、情绪价值分析
-- 原创选题和故事创意
-- 目标国家文化本地化
+- 当前海外市场研究
+- 短剧 / 网文趋势分析
+- 原创选题
+- 本地化
 - Logline / Premise / Theme
-- 人物设定与人物关系
-- Story Engine
-- 完整故事线
-- 全集结构
-- 分集大纲
-- Episode Beat
-- Scene List
-- 逐场剧本
+- 人物 / 关系
+- Story / Series Engine
+- 全剧结构
+- 分集结构
+- Beat
+- Scene Contract
+- 完整逐场剧本
 - 动作与对白
-- 钩子、反转、悬念、兑现
-- 连贯性维护
-- 剧本重写与润色
-- 中文完整剧本交付
-- 外语对白中文对照
+- Hook / Reveal / Reversal / Payoff / Cliffhanger
+- Story Bible
+- 连续性
+- 剧本审稿和重写
 
 本 Skill 不负责：
 
-- 镜号
 - 分镜
+- 镜号
 - 景别
 - 运镜
-- 镜头焦段
+- 焦段
+- 摄影参数
 - 生图提示词
 - 首帧提示词
 - 图生视频提示词
@@ -169,118 +286,75 @@ language: zh-CN
 - 配音参数
 - 剪辑方案
 
-用户只要求剧本时，不要向后续制作阶段漂移。
+如果用户只要剧本，不向后续制作漂移。
 
 ---
 
-# 4. 市场驱动项目必须先研究
+# 7. 模式路由
 
-当用户要求“根据海外最新短剧或小说排名写剧本”时，必须重新获取当前资料，不允许把历史知识当成最新榜单。
+根据用户要求选择最小满足模式。
 
-优先研究窗口：
+## MODE A — 市场研究
 
-```text
-最近 7 天：榜单和新爆款
-最近 30 天：当前趋势
-最近 90 天：持续趋势
-最近 180 天：近期数据不足时补充
-```
+输出：
 
-读取：`references/market-research.md`
-
-至少区分：
-
+- 最新市场证据
 - 当前头部
-- 持续热门
 - 上升题材
 - 饱和题材
-- 下滑题材
-- 潜在空白机会
+- 情绪价值
+- Opportunity Gap
 
-不要把单个平台 Top 10 当成整个海外市场。
+不写剧本。
 
----
+## MODE B — 创意池
 
-# 5. 学市场，不复制作品
-
-允许提炼：
-
-- 题材频率
-- Trope 组合
-- 核心情绪价值
-- 人物原型
-- 关系类型
-- 冲突机制
-- 开篇 Hook 类型
-- 反转类型
-- Cliffhanger 类型
-- 节奏方式
-- 连载发动机
-
-禁止复制：
-
-- 现有人物名字
-- 独特人物组合
-- 标志性设定
-- 具体场景
-- 台词
-- 独特道具
-- 完整剧情顺序
-- 特有反转
-- 结局机制
-- 作品标题
-
-市场研究最终必须转化为：
+执行：
 
 ```text
-市场共性
-+
-目标观众情绪需求
-+
-新的角色身份
-+
-新的社会环境
-+
-新的核心困境
-=
-原创故事
+实时市场研究
+→ 5–10 个原创 Concept
+→ 评分
+→ 推荐前三
 ```
 
+## MODE C — 故事开发
+
+把已确认 Concept 发展为：
+
+- Story Bible
+- 人物关系
+- Series Engine
+- 完整故事线
+- Episode Map
+
+## MODE D — 完整剧本
+
+继续写到每一集完整正文。
+
+## MODE E — Rewrite / Script Doctor
+
+对已有剧本进行：
+
+```text
+根问题诊断
+→ 结构
+→ 人物
+→ 分集
+→ 场景
+→ 对白
+→ 本地化
+→ 连续性
+→ 重写
+```
+
+用户说“完整剧本”，默认进入 MODE D。
+
 ---
 
-# 6. 本地化不是改英文名字
+# 8. Project Brief
 
-不得先写中国短剧，再把“李总、王家、豪门”换成英文姓名。
-
-目标国家必须影响：
-
-- 家庭结构
-- 恋爱与婚姻方式
-- 阶层符号
-- 职业与公司结构
-- 学校制度
-- 医疗流程
-- 警务与法律逻辑
-- 遗产与信托
-- 住房方式
-- 金钱与货币
-- 社交礼仪
-- 宗教（剧情相关时）
-- 幽默
-- 语言节奏
-- 禁忌与社会边界
-
-读取：`references/localization.md`
-
-重要事实影响剧情因果时必须核实当地现实。
-
-**本地化发生在故事逻辑层；最终剧本仍默认以中文交付。**
-
----
-
-# 7. 项目参数
-
-建立 Project Brief：
+目标国家确认后建立：
 
 ```yaml
 project:
@@ -303,680 +377,464 @@ project:
   dialogue_mode: chinese | bilingual | target-language-only
 ```
 
-默认：
+除 `target_country` 外，普通缺失参数可根据任务合理推断并标记为 `ASSUMED`。
 
-```yaml
-script_output_language: zh-CN
-dialogue_mode: bilingual
-```
-
-如果用户没有要求保留英文对白，也可以直接使用自然中文对白。
-
-如果用户明确要求海外英语对白，则使用 bilingual，而不是把整份剧本改成英文。
+不要因为普通参数没填就不断追问用户。
 
 ---
 
-# 8. 模式选择
+# 9. 市场研究阶段
 
-### MODE A — 市场分析
+读取：
 
-只输出趋势和机会。
+`references/market-research.md`
 
-### MODE B — 创意池
+必须：
 
-市场研究 → 5–10 个原创故事 → 评分与推荐。
+1. 记录检索日期
+2. 优先官方 / 第一方当前榜单
+3. 多平台取样
+4. 区分榜首、持续热门和上升作品
+5. 研究短剧，也可把网文作为上游趋势信号
+6. 把作品转换成 Story DNA
+7. 统计重复 Trope / 关系 / 情绪机制
+8. 区分常青 / 上升 / 饱和 / 下滑 / 空白
+9. 明确证据不足处
 
-### MODE C — 故事开发
-
-把确认的创意发展为完整 Story Bible、人物关系、全剧线和分集大纲。
-
-### MODE D — 完整剧本
-
-继续写到逐场动作、对白、每集完整正文。
-
-### MODE E — 剧本重写
-
-诊断现有剧本并重写，同时保留用户锁定事实。
-
-用户说“写完整剧本”，默认 MODE D。
+不要把一个平台的 Top 10 当成整个国家市场。
 
 ---
 
-# 9. 从市场到原创故事
+# 10. Concept Pool
 
-市场驱动项目执行：
+市场驱动新项目至少生成 5 个候选，推荐 8–10 个。
 
-1. 确定目标国家、平台和人群
-2. 获取多个平台近期样本
-3. 区分榜首作品和上升作品
-4. 将样本拆成 Story DNA
-5. 统计高频题材、Trope、关系和 Hook
-6. 分析观众真正消费的情绪价值
-7. 判断常青 / 上升 / 饱和 / 衰退
-8. 找 Opportunity Gap
-9. 生成 5–10 个原创创意
-10. 对创意评分
-11. 选择最强方案
-12. 做原创隔离检查
-13. 进入故事开发
-
-Story DNA 建议包含：
-
-```yaml
-story_dna:
-  protagonist_type:
-  social_status:
-  relationship_type:
-  external_goal:
-  core_conflict:
-  central_secret:
-  audience_fantasy:
-  emotional_engine:
-  opening_hook:
-  major_reversal:
-  cliffhanger_pattern:
-  core_tropes:
-```
-
----
-
-# 10. 创意生成与评分
-
-每个候选方案：
+每个 Concept：
 
 ```yaml
 concept:
   working_title_zh:
-  working_title_en:
+  working_title_original:
   genre:
   target_audience:
-  logline_zh:
+  logline:
   protagonist:
-  relationship_engine:
+  central_relationship:
   external_goal:
   core_conflict:
   central_secret:
   emotional_engine:
+  audience_fantasy:
   opening_hook:
   major_reversal:
-  season_engine:
+  series_engine:
   market_reason:
   localization_advantage:
   originality_difference:
 ```
 
-评分 100 分：
+评分：
 
 ```text
-当前市场适配       15
-开篇吸引力         15
-关系张力           15
-情绪回报           15
-连载发动机         15
-反转 / 揭秘空间    10
-本地化可信度        5
-原创差异化          5
-制作可行性          5
-----------------------
-总分              100
+市场适配             15
+Hook                 15
+关系张力             15
+情绪兑现             15
+Series Engine        15
+反转 / 揭秘空间      10
+本地化可信度          5
+原创差异化            5
+制作可行性            5
+------------------------
+总分                100
 ```
 
-熟悉感与新鲜感并存。
+高分不是“最像榜一”，而是：
 
-不要机械模仿当前第一名。
+```text
+成熟需求
++
+当前信号
++
+新的执行方式
+```
 
 ---
 
-# 11. 故事基础
+# 11. 本地化
 
-正式分集前锁定：
+读取：
 
-- 一句话 Logline
-- 主角
-- 主角具体目标
-- 核心阻碍
-- 失败代价
-- 核心关系
-- 核心秘密
-- 戏剧问题
-- 主题问题
-- 情绪承诺
-- 最终结局
+`references/localization.md`
 
-故事因果优先：
+禁止：
 
 ```text
-因为 A
-所以 B
-但是 C
-因此 D
+中国故事
+→ 换英文名字
+→ 当成美国故事
+```
+
+必须检查：
+
+- 家庭结构
+- 恋爱 / 婚姻
+- 财产 / 继承
+- 职业和公司结构
+- 阶层符号
+- 医疗
+- 教育
+- 警务
+- 法律
+- 住房
+- 货币
+- 社交行为
+- 对白逻辑
+
+影响剧情因果的现实事实必须查证。
+
+---
+
+# 12. 故事开发
+
+读取：
+
+`references/story-development.md`
+
+正式写正文前锁定：
+
+```text
+Premise
+Theme Question
+Dramatic Question
+主角 Want / Need
+核心关系
+主要对抗力量
+失败代价
+Series Engine
+完整故事线
+最终结局
+```
+
+核心因果：
+
+```text
+因为
+→ 所以
+→ 但是
+→ 因此
 ```
 
 避免：
 
 ```text
-然后 A
-然后 B
-然后 C
+然后
+→ 然后
+→ 然后
 ```
 
 ---
 
-# 12. 人物与人物关系
+# 13. 结构方法不写死
 
-读取：`references/story-development.md`
+可以使用：
 
-主要人物建立：
+- 三幕
+- 四 / 五 / 六幕
+- Save the Cat
+- Hero's Journey
+- 七点结构
+- 自定义阶段
 
-```yaml
-character:
-  name_zh:
-  name_original:
-  age:
-  nationality:
-  city:
-  profession:
-  socioeconomic_position:
-  public_identity:
-  hidden_identity:
-  external_goal:
-  internal_need:
-  fear:
-  wound:
-  flaw:
-  strength:
-  secret:
-  leverage:
-  contradiction:
-  opening_state:
-  ending_state:
-  arc:
-  speaking_style:
-```
+但结构模板只用于帮助故事，不允许为了填模板增加无因果情节。
 
-主要关系建立：
-
-```yaml
-relationship:
-  character_a:
-  character_b:
-  surface_relationship:
-  hidden_truth:
-  what_a_wants_from_b:
-  what_b_wants_from_a:
-  power_balance:
-  attraction_or_dependency:
-  conflict_of_interest:
-  unequal_information:
-  breaking_point:
-  transformation:
-```
-
-爱情关系不能只靠“男主有钱 + 女主漂亮”。
-
-必须存在真实的关系冲突发动机。
-
----
-
-# 13. Story Engine
-
-长篇短剧至少建立三层发动机：
+海外竖屏短剧优先：
 
 ```text
-关系发动机
+全剧宏观阶段
 +
-外部目标发动机
-+
-秘密 / 信息发动机
+每集微型戏剧单元
 ```
 
-可叠加：
-
-- 家族争夺
-- 商业竞争
-- 法律威胁
-- 复仇
-- 超自然规则
-- 身份秘密
-- 谜案
-- 社会地位压力
-
-检查：
-
-> 如果男女主只要坐下来坦白一次，故事是否立即结束？
-
-如果是，说明发动机太弱。
+而不是把电影模板机械切成几十份。
 
 ---
 
-# 14. 全剧结构
+# 14. 全剧必须先于逐集正文
 
-先规划宏观阶段，再写逐集剧本：
+长项目严格顺序：
 
 ```text
-开篇扰动
-→ 被迫进入新局面
-→ 初次升级
-→ 第一次兑现
-→ 更深秘密 / 新威胁
-→ 关系变化
-→ 重大揭露
-→ 暂时胜利
-→ 重大失败
-→ 反击
-→ 真相汇合
-→ 最终选择
-→ 高潮
-→ 情绪兑现
+完整故事
+→ 全集 Episode Map
+→ 关键 Reveal / Setup / Payoff 锁定
+→ 第1集正文
+→ Handoff
+→ 第2集正文
+→ Handoff
+→ ……
 ```
 
-每个阶段至少改变一项：
+禁止：
 
-目标 / 关系 / 信息 / 权力 / 身份 / 风险。
+```text
+一句创意
+→ 一次生成几十集完整正文
+```
+
+原因：容易出现人物漂移、重复剧情、伏笔遗忘和连续性错误。
 
 ---
 
-# 15. 单集结构
+# 15. 一次只正式写一集
 
-每集建立 Episode Card：
+对于连续短剧：
+
+- 每次正式 Draft 一个 episode
+- 强连续性 Episode 串行
+- 写下一集前读取上一集 Handoff State
+- 不重新发明已锁定事实
+
+整季大纲可以一次规划，但完整正文不要一次性批量自由生成。
+
+---
+
+# 16. Episode Contract
+
+每集先明确：
 
 ```yaml
 episode:
   number:
-  episode_goal:
+  opening_state:
   opening_hook:
+  episode_goal:
   protagonist_goal:
   immediate_obstacle:
-  central_conflict:
+  key_action:
   escalation:
   reveal_or_reversal:
   emotional_payoff:
-  relationship_change:
-  ending_cliffhanger:
-  resulting_state:
+  relationship_shift:
+  cliffhanger:
+  ending_state:
   next_question:
 ```
 
-短剧常用节奏：
+短剧常用：
 
 ```text
 HOOK
-→ GOAL
-→ CONFLICT
-→ ESCALATION
-→ TURN / PAYOFF
-→ CLIFFHANGER
+→ 目标
+→ 冲突
+→ 升级
+→ Turn / Payoff
+→ 后果
+→ Cliffhanger
 ```
 
-但不能每集机械套同一个模板。
+不要每集机械复制同一节奏。
 
 ---
 
-# 16. Scene List
+# 17. Scene Contract
 
-正式剧本前建立场景清单：
+正式写每场前明确：
 
 ```yaml
 scene:
   id:
-  scene_heading_zh:
+  location:
+  time:
   characters:
-  pov:
-  scene_goal:
+  dramatic_question:
+  goal:
   opposing_force:
   tactic:
-  conflict:
-  escalation:
+  counter_tactic:
   reveal:
   turn:
-  result:
   value_before:
   value_after:
+  result:
   exit_question:
 ```
 
-没有变化的场景优先删除或合并。
+没有变化的场景优先删、合并或重写。
 
 ---
 
-# 17. 正式剧本写作规则
+# 18. 完整剧本写作
 
-读取：`references/screenplay-writing.md`
+读取：
 
-核心原则：
+`references/screenplay-writing.md`
 
-> 只写观众能够看到和听到的内容。
+核心规则：
 
-默认中文格式：
-
-```text
-第1集
-
-场次 1
-内景｜纽约 · 艾玛公寓｜夜
-
-艾玛停在门口。
-
-丹尼尔的皮鞋旁，放着一双陌生的红色高跟鞋。
-
-卧室里传出女人的笑声。
-
-艾玛（EMMA）
-英文：Daniel?
-中文：丹尼尔？
-
-卧室里突然安静。
-```
-
-如果不需要英文对白：
-
-```text
-艾玛
-丹尼尔？
-```
-
-动作描写必须：
-
-- 中文
-- 现在时感
-- 可视化
-- 简洁具体
-- 可由演员表演
-- 避免小说式内心解释
+- 只写可见 / 可听 / 可演
+- 中文主稿
+- 外语对白逐句中文翻译
+- 场景晚进早出
+- 每场有目标 / 阻力 / 策略 / Turn
+- 对白是一种行动
+- 解说尽量变成冲突中的筹码
+- 主要角色有 Voice Fingerprint
+- 重要场景做 Sound-Off Test
+- 不混入摄影 / 分镜 / 生成模型指令
 
 ---
 
-# 18. 对白规则
+# 19. Story Bible 与连续性
 
-对白必须至少完成一个功能：
-
-- 攻击
-- 防御
-- 隐瞒
-- 试探
-- 诱惑
-- 威胁
-- 谈判
-- 拒绝
-- 误导
-- 揭露
-- 改变关系
-- 逼迫选择
-
-避免：
-
-- 两个都知道的人互相解释背景
-- 一长段交代历史
-- 机械翻译中文句式
-- 所有人说话风格一样
-- 把角色感情直接全部说出来
-
-本地化英语对白应先保证“像当地人会说的话”，再给准确自然的中文意思。
-
-不要为了逐字对应而牺牲自然度。
-
-例如：
-
-```text
-艾玛（EMMA）
-英文：I'm done begging you to choose me.
-中文：我不会再求你选择我了。
-```
-
-中文翻译应传递剧情语义和情绪，不必机械逐词翻译。
-
----
-
-# 19. 信息差管理
-
-分别维护：
-
-```text
-编剧知道
-观众知道
-角色 A 知道
-角色 B 知道
-```
-
-不能让角色使用尚未获得的信息。
-
-信息差用于：
-
-- 悬念
-- 戏剧反讽
-- 谜团
-- 误会
-- 身份揭露
-
----
-
-# 20. Continuity Bible
-
-长篇项目必须持续记录：
+长项目持续维护：
 
 ```yaml
 continuity:
   timeline:
   character_locations:
+  emotional_states:
+  relationship_states:
   injuries:
   possessions:
-  relationship_states:
-  secrets_known_by_each_character:
-  planted_setups:
-  paid_off_setups:
-  unresolved_questions:
   money_and_resources:
+  knowledge_by_character:
+  secrets:
+  setups:
+  payoffs:
+  unresolved_questions:
   legal_or_social_constraints:
   supernatural_rules:
 ```
 
-每写完一集都更新。
-
-写下一集前先读取最新状态。
-
----
-
-# 21. 因果审查
-
-每个重大剧情点问：
-
-1. 为什么现在发生？
-2. 谁造成？
-3. 前面什么行为使它成为可能？
-4. 主角此时知道什么？
-5. 主角为什么这样选择？
-6. 有没有更简单的方法？
-7. 为什么人物不能直接用那个方法？
-8. 这个行动产生什么后果？
-
-如果答案只是：
-
-> 因为剧情需要。
-
-必须重写。
-
-巧合可以制造麻烦，但尽量不要解决核心问题。
-
----
-
-# 22. 升级与兑现
-
-冲突不能一直重复同一层级。
-
-错误：
+信息状态必须区分：
 
 ```text
-被羞辱
-→ 再被羞辱
-→ 又被羞辱
+LOCKED
+ASSUMED
+PROPOSED
 ```
 
-更好：
+禁止把临时候选自动变成正典。
+
+---
+
+# 20. 每集结束 Handoff
+
+```yaml
+handoff_state:
+  episode:
+  story_time:
+  character_locations:
+  emotional_states:
+  relationship_states:
+  injuries:
+  possessions:
+  new_information_by_character:
+  secrets_revealed:
+  setups_planted:
+  setups_paid:
+  unresolved_questions:
+  antagonist_next_move:
+```
+
+下一集先读取，再写。
+
+---
+
+# 21. Revision 不是最后润色一下
+
+第一稿完成后按层级修：
 
 ```text
-公开难堪
-→ 失去机会
-→ 关系破裂
-→ 身份暴露
-→ 财务 / 法律 / 人身风险
+Pass 1  Premise / Story Engine
+Pass 2  因果 / 全剧结构
+Pass 3  人物主动性 / 关系
+Pass 4  分集节奏 / Hook / Payoff
+Pass 5  场景功能 / Scene Value
+Pass 6  对白 / 潜台词 / Voice
+Pass 7  本地化
+Pass 8  连续性 / Setup-Payoff
+Pass 9  Anti-AI / 中文自然度
+Pass 10 原创性
 ```
 
-同时不能无限吊胃口：
+先修根问题，再修表面句子。
+
+最终读取：
+
+`references/quality-gates.md`
+
+---
+
+# 22. Output Templates
+
+需要标准化交付时读取：
+
+`references/output-templates.md`
+
+默认用户只要求“剧本”时，不强制把所有内部规划资料一起展示。
+
+可以内部维护 Story Bible / Episode Card / Handoff，但对用户只交付其需要的内容。
+
+---
+
+# 23. 参考文件加载地图
 
 ```text
-承诺
-→ 部分兑现
-→ 产生后果
-→ 更大的问题
+当前市场 / 榜单 / 热门
+→ references/market-research.md
+
+国家文化与制度本地化
+→ references/localization.md
+
+人物 / 关系 / Series Engine / 全剧结构 / Episode Map
+→ references/story-development.md
+
+场景 / 动作 / 对白 / 中文主稿 / 双语对白
+→ references/screenplay-writing.md
+
+最终审稿 / Revision / 硬性门槛
+→ references/quality-gates.md
+
+固定输出格式
+→ references/output-templates.md
+
+维护时了解外部 Skill 的融合来源
+→ references/craft-sources.md
 ```
 
-定期给予：
+不要无论什么任务都把所有 reference 全部读一遍。
 
-- 反击
-- 身份线索
-- 真相揭露
-- 爱情关系变化
-- 反派受挫
-- 误会解除
-- 新威胁
+按当前阶段读取必要文件。
 
 ---
 
-# 23. 原创隔离审查
+# 24. Definition of Done
 
-完成故事后，与研究样本比较：
-
-- 主角身份
-- 关系设定
-- 触发事件
-- 核心秘密
-- 外部目标
-- 大反转
-- 高潮机制
-- 结局
-- 剧情节点顺序
-
-同一 Trope 可以使用。
-
-但如果整体明显像某一部现成作品换皮，必须重新设计。
-
----
-
-# 24. 本地化审查
-
-检查：
-
-- 人名
-- 地理
-- 距离
-- 货币
-- 职业
-- 公司制度
-- 阶层符号
-- 婚姻 / 离婚
-- 信托 / 遗产
-- 学校
-- 医疗
-- 警察
-- 法院 / 合同
-- 住房
-- 约会方式
-- 家庭预期
-- 俚语
-- 幽默
-
-但记住：
-
-> 本地化事实按目标国家，剧本文本默认仍用中文。
-
----
-
-# 25. 修改流程
-
-初稿后至少执行：
-
-1. Premise 审查
-2. Structure 审查
-3. 主角主动性审查
-4. 核心关系审查
-5. 单集留存审查
-6. 场景效率审查
-7. 对白审查
-8. 连贯性审查
-9. 本地化审查
-10. 原创性审查
-11. 中文可读性审查
-12. 外语对白翻译完整性审查
-
-读取：`references/quality-gates.md`
-
----
-
-# 26. 外语对白翻译完整性 Gate
-
-最终交付前逐场检查：
+“完整剧本”只有满足以下条件才完成：
 
 ```text
-□ 所有剧情说明均为中文
-□ 所有场景动作均为中文
-□ 所有人物说明均为中文
-□ 每一句英文对白后都有中文翻译
-□ 其他外语对白也有中文翻译
-□ 中文翻译与外语原句语义一致
-□ 中文翻译保留角色语气和潜台词
-□ 没有整段纯英文遗漏
-□ 没有只在剧尾附统一翻译
+□ 目标国家明确
+□ 市场驱动项目使用本次实时数据
+□ 故事原创，不是热门剧换皮
+□ 有完整开端、升级、高潮和结局
+□ 用户要求的每一集都已经戏剧化，不只是简介
+□ 人物行为符合目标、知识和压力
+□ 主要关系持续变化
+□ 每集有状态变化
+□ 每场有戏剧功能
+□ 对白有行动和人物差异
+□ Setup / Payoff 没有严重遗忘
+□ Story Bible 连贯
+□ 本地化事实足够可信
+□ 中文主稿完整
+□ 外语对白有中文翻译
+□ 已经过结构、人物、场景、对白和连续性 Revision
+□ 没有混入下游分镜 / 视频生成内容
 ```
 
-任何一项不通过，不得视为最终稿。
-
----
-
-# 27. 输出纪律
-
-读取：`references/output-templates.md`
-
-完整项目通常包含：
-
-```text
-A. 海外市场趋势摘要（中文）
-B. Creative Brief（中文）
-C. 原创创意池（中文）
-D. 最终选题（中文）
-E. 人物 / 人物关系 Bible（中文）
-F. Story Engine（中文）
-G. 全剧故事线（中文）
-H. 完整分集大纲（中文）
-I. 单集 Beat（中文）
-J. 完整逐集剧本（中文主文本）
-K. 外语对白逐句中文对照（出现外语时强制）
-L. Continuity Bible
-M. 修改与质量报告
-N. 最终中文完整剧本
-```
-
-如果用户只要剧本，不要强行把所有策划过程一起展示。
-
----
-
-# 28. “完整剧本”的完成定义
-
-用户要求完整剧本时，只有满足以下条件才算完成：
-
-- 有开端、发展、高潮、结局
-- 用户要求的每一集都已真正戏剧化
-- 不是只有一句分集简介
-- 每集包含实际场景、动作和对白
-- 人物目标与关系保持一致
-- 集与集之间存在因果承接
-- 主要伏笔得到兑现或明确保留
-- 目标国家现实逻辑可信
-- 通过连贯性与原创性审查
-- 中文正文可直接阅读和审核
-- 所有外语对白均有紧邻中文翻译
-- 没有混入分镜、视频生成或剪辑内容
-
-核心标准：
+核心判断：
 
 ```text
 人物的选择制造下一场戏。
@@ -985,5 +843,5 @@ N. 最终中文完整剧本
 而不是：
 
 ```text
-编剧为了下一个情节点强行推动人物。
+作者需要下一场戏，所以突然发生一件事。
 ```
