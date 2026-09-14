@@ -1,49 +1,72 @@
-# Output Templates
+# 输出模板（中文主稿）
 
-Use these templates to keep long projects consistent.
+本文件统一规定所有可见交付物的默认语言和格式。
 
-## 1. Market Intelligence Summary
+## 0. 强制语言规则
+
+默认交付语言：**中文**。
+
+即使目标市场是美国、英国、加拿大、澳大利亚等英语市场，以下内容仍默认用中文：
+
+- 市场分析
+- 创意方案
+- 故事梗概
+- 人物设定
+- 人物关系
+- 分集大纲
+- 场景描述
+- 动作描述
+- 完整剧本正文
+
+如果对白使用英语或其他外语，必须紧跟中文翻译。
+
+禁止把“英文剧本”作为默认主稿。
+
+---
+
+## 1. 市场趋势摘要
 
 ```text
-# Market Intelligence
+# 海外市场趋势摘要
 
-Target country:
-Target language:
-Target audience:
-Research date:
-Research window:
-Platforms / sources checked:
+目标国家：
+目标语言：
+目标平台：
+目标观众：
+研究日期：
+研究周期：
+数据来源：
 
-## Current leaders
+## 当前头部作品 / 题材
 - ...
 
-## Repeated genres / tropes
+## 高频题材与 Trope
 - ...
 
-## Repeated relationship patterns
+## 高频人物关系
 - ...
 
-## Primary emotional promises
+## 核心情绪价值
 - ...
 
-## Rising signals
+## 上升趋势
 - ...
 
-## Saturated signals
+## 饱和趋势
 - ...
 
-## Opportunity gaps
+## 潜在机会
 - ...
 
-## Local cultural notes
+## 本地文化注意事项
 - ...
 
-## Recommended creative directions
+## 推荐创作方向
 1. ...
 2. ...
 3. ...
 
-Confidence / limitations:
+置信度 / 数据限制：
 ...
 ```
 
@@ -70,77 +93,75 @@ creative_brief:
   differentiation:
   localization_notes:
   production_constraints:
+  script_output_language: zh-CN
+  dialogue_mode: chinese | bilingual | target-language-only
 ```
 
-## 3. Concept Pool
+## 3. 创意池
 
 ```text
-# IDEA 01
-English title:
-Chinese title:
-Genre:
-Logline:
-Protagonist:
-Central relationship:
-External goal:
-Core conflict:
-Central secret:
-Opening hook:
-Major reversal:
-Emotional promise:
-Series engine:
-Market reason:
-Originality difference:
-Localization advantage:
-Score: /100
+# 创意 01
+中文暂定名：
+英文暂定名：
+类型：
+目标观众：
+一句话故事：
+主角：
+核心关系：
+外部目标：
+核心冲突：
+核心秘密：
+开篇 Hook：
+最大反转：
+情绪承诺：
+连载发动机：
+市场依据：
+原创差异：
+本地化优势：
+评分：/100
 
-# IDEA 02
+# 创意 02
 ...
 ```
 
-## 4. Selected Project Bible
+## 4. 项目 Bible
 
 ```text
-# PROJECT
+# 项目基础
 
-English title:
-Chinese title:
-Target market:
-Genre:
-Tone:
-Episode count:
-Episode duration:
+中文名：
+英文名：
+目标市场：
+类型：
+调性：
+集数：
+单集时长：
 
-# LOGLINE
-
+# Logline
 ...
 
-# DRAMATIC QUESTION
-
+# 核心戏剧问题
 ...
 
-# THEME QUESTION
-
+# 主题问题
 ...
 
-# AUDIENCE PROMISE
-
+# 观众情绪承诺
 ...
 
-# COMPLETE STORY SYNOPSIS
-
+# 完整故事梗概
 ...
 
-# ENDING
-
+# 最终结局
 ...
 ```
 
-## 5. Character Bible
+## 5. 人物 Bible
 
 ```yaml
 character:
-  name:
+  name_zh:
+  name_original:
   age:
   nationality:
   city:
@@ -166,9 +187,7 @@ character:
   speaking_style:
 ```
 
-Repeat for each principal character.
-
-## 6. Relationship Bible
+## 6. 人物关系 Bible
 
 ```yaml
 relationship:
@@ -187,69 +206,67 @@ relationship:
   final_state:
 ```
 
-## 7. Series Story Engine
+## 7. Story Engine
 
 ```text
-# Relationship Engine
+# 关系发动机
 ...
 
-# External Objective Engine
+# 外部目标发动机
 ...
 
-# Secret / Information Engine
+# 秘密 / 信息发动机
 ...
 
-# Antagonist Engine
+# 反派发动机
 ...
 
-# Why the story can sustain the requested episode count
+# 为什么能够支撑目标集数
 ...
 ```
 
-## 8. Full-Series Arc
+## 8. 全剧结构
 
 ```text
-PHASE 1 — Opening disruption
-Episodes:
-Story function:
-Major events:
-Relationship state:
-Knowledge state:
-End turn:
+阶段 1 — 开篇扰动
+涉及集数：
+剧情功能：
+重大事件：
+关系状态：
+信息状态：
+阶段结尾：
 
-PHASE 2 — Commitment / entrapment
+阶段 2 — 被迫进入新局面
 ...
 
-PHASE 3 — Escalation
+阶段 3 — 升级
 ...
 
-PHASE 4 — Major reversal
+阶段 4 — 重大反转
 ...
 
-PHASE 5 — Major loss
+阶段 5 — 重大失败
 ...
 
-PHASE 6 — Counterattack
+阶段 6 — 反击
 ...
 
-PHASE 7 — Convergence
+阶段 7 — 真相汇合
 ...
 
-PHASE 8 — Final choice / climax
+阶段 8 — 最终选择 / 高潮
 ...
 
-PHASE 9 — Payoff
+阶段 9 — 情绪兑现
 ...
 ```
 
-## 9. Episode Map
-
-Use a table or repeated cards:
+## 9. 分集大纲
 
 ```yaml
 episode:
   number: 1
-  title:
+  title_zh:
   opening_state:
   opening_hook:
   protagonist_goal:
@@ -264,32 +281,32 @@ episode:
   next_question:
 ```
 
-## 10. Episode Beat Sheet
+## 10. 单集 Beat Sheet
 
 ```text
-# EPISODE XX
+# 第 XX 集
 
-Episode purpose:
-Opening hook:
-Main dramatic question:
+本集作用：
+开篇 Hook：
+核心戏剧问题：
 
 Beat 1 — ...
-Cause:
-Action:
-Result:
+原因：
+行动：
+结果：
 
 Beat 2 — ...
-Cause:
-Action:
-Result:
+原因：
+行动：
+结果：
 
 Beat 3 — ...
 ...
 
-Emotional payoff:
-Relationship change:
-Ending cliffhanger:
-Continuity updates:
+情绪回报：
+关系变化：
+结尾 Cliffhanger：
+连续性更新：
 ```
 
 ## 11. Scene List
@@ -297,7 +314,7 @@ Continuity updates:
 ```yaml
 scene:
   id: E01-S01
-  slugline:
+  scene_heading_zh:
   characters:
   pov:
   goal:
@@ -312,59 +329,99 @@ scene:
   exit_question:
 ```
 
-## 12. Full Screenplay — English Master
+## 12. 完整剧本 — 中文主稿（默认）
 
 ```text
-EPISODE 01
+第1集
 
-INT. LOCATION - DAY
+场次 1
+内景｜纽约 · 艾玛公寓｜夜
 
-Visual action in present tense.
+艾玛停在门口。
 
-CHARACTER
-Dialogue.
+丹尼尔的皮鞋旁，放着一双陌生的红色高跟鞋。
 
-CHARACTER
-Dialogue.
+卧室里传来女人压低的笑声。
 
-Action / turn.
+艾玛
+丹尼尔？
 
-CUT TO NEXT SCENE ONLY IF A TRANSITION IS ACTUALLY USEFUL.
+卧室里瞬间安静。
 
-INT. NEXT LOCATION - NIGHT
+……
 
-...
-
-END OF EPISODE 01
+——第1集结束——
 ```
 
-Do not append storyboard prompts or image-generation prompts.
+此格式为默认格式。
 
-## 13. Chinese Review Version
+不要附加分镜、生图或视频提示词。
 
-When the user needs Chinese review support, provide either:
+## 13. 完整剧本 — 中文主稿 + 英文对白对照
 
-### Option A — Full Chinese screenplay version
-
-Mirror the English screenplay scene by scene.
-
-### Option B — Chinese review notes
+目标市场为英语国家、且项目需要英文对白时，使用：
 
 ```text
-本集剧情目的：
-核心冲突：
-关键反转：
-情绪回报：
-结尾钩子：
-英文对白中特别需要理解的潜台词：
-本地化说明：
+第1集
+
+场次 1
+内景｜纽约 · 艾玛公寓｜夜
+
+艾玛停在门口。
+
+一双陌生的红色高跟鞋，紧挨着丹尼尔的皮鞋。
+
+艾玛（EMMA）
+英文：Daniel?
+中文：丹尼尔？
+
+卧室门打开。
+
+丹尼尔（DANIEL）
+英文：Emma, I can explain.
+中文：艾玛，我可以解释。
+
+艾玛盯着他，没有进去。
+
+艾玛（EMMA）
+英文：Then start with her shoes.
+中文：那就先解释一下她的鞋。
 ```
 
-The English master remains authoritative for an English-market project unless the user says otherwise.
+规则：
 
-## 14. Continuity Update
+1. 场景标题用中文。
+2. 动作描述用中文。
+3. 人物说明用中文。
+4. 英文对白先写符合当地口语习惯的自然英语。
+5. 每句英文后立刻给中文翻译。
+6. 中文翻译要准确传达情绪和潜台词，不要求逐词直译。
+7. 不允许把整场英文对白集中到剧尾再翻译。
+8. 不允许漏译任何外语台词。
 
-After each episode:
+## 14. 其他外语对白
+
+如果目标语言是西班牙语、葡萄牙语、法语等，同样采用：
+
+```text
+角色名
+西语：...
+中文：...
+```
+
+或：
+
+```text
+角色名
+葡语：...
+中文：...
+```
+
+任何外语对白都必须有中文对照，除非用户明确要求纯外语发行稿。
+
+## 15. Continuity Update
+
+每集结束后维护：
 
 ```yaml
 continuity_update:
@@ -383,66 +440,80 @@ continuity_update:
   supernatural_rule_changes:
 ```
 
-## 15. Revision Report
+## 16. 修改报告
 
 ```text
-# Revision Report
+# 剧本修改报告
 
-Overall score: /100
+总评分：/100
 
-## Strongest elements
+## 最强部分
 - ...
 
-## Weakest elements
+## 最弱部分
 - ...
 
-## Structural problems
+## 结构问题
 - ...
 
-## Character problems
+## 人物问题
 - ...
 
-## Episode / retention problems
+## 单集 / 留存问题
 - ...
 
-## Dialogue problems
+## 对白问题
 - ...
 
-## Localization problems
+## 本地化问题
 - ...
 
-## Continuity problems
+## 连贯性问题
 - ...
 
-## Originality risks
+## 原创风险
 - ...
 
-## Revisions completed
+## 外语对白翻译遗漏
 - ...
 
-## Remaining risks
+## 已完成修改
+- ...
+
+## 剩余风险
 - ...
 ```
 
-## 16. Final Delivery Package
+## 17. 完整项目交付包
 
-For a complete project:
+默认：
 
 ```text
-01 Market Intelligence Summary
+01 海外市场趋势摘要
 02 Creative Brief
-03 Selected Concept
-04 Complete Story Synopsis
-05 Character Bible
-06 Relationship Bible
-07 Series Story Engine
-08 Full-Series Arc
-09 Complete Episode Map
-10 Episode Beat Sheets
-11 Complete English Master Screenplay
-12 Chinese Review Version if requested
-13 Continuity Bible
-14 Revision / Quality Report
+03 原创创意池
+04 最终选题
+05 完整故事梗概
+06 人物 Bible
+07 人物关系 Bible
+08 Story Engine
+09 全剧结构
+10 完整分集大纲
+11 Episode Beat Sheets
+12 完整中文主剧本
+13 英文 / 外语对白逐句中文对照（存在外语时）
+14 Continuity Bible
+15 修改 / 质量报告
 ```
 
-If the user explicitly requests only the screenplay, deliver the screenplay without forcing all planning documents into the visible answer.
+用户如果只要求“完整剧本”，只交付完整剧本即可，不要强迫展示全部规划文档。
+
+## 18. 权威版本规则
+
+默认情况下：
+
+> **中文主剧本是用户审阅和后续制作的权威版本。**
+
+外语对白用于目标市场语言真实性，但必须保留中文翻译。
+
+只有用户明确说“请给我纯英文最终发行稿”时，纯英文版本才可单独交付。
