@@ -13,6 +13,30 @@ The goal is not to copy chart leaders. The goal is to understand:
 - which combinations are saturated
 - where there may be a useful opportunity gap
 
+## Gate 0 — Target country is mandatory
+
+Before any overseas market research, concept generation, localization, or screenplay writing begins, the **target country must be known**.
+
+If the user has not provided a country, stop the creative workflow and ask one concise question first:
+
+> 你这部短剧准备主要面向哪个国家或地区？例如美国、英国、加拿大、澳大利亚、德国、法国、西班牙、巴西、日本等。
+
+Do **not** silently default to the United States.
+
+Do **not** interpret “海外”“国外”“英文市场”“欧美” as a specific country.
+
+If the user answers with a broad region such as “欧美”“欧洲”“拉美” and the project requires country-level localization, ask them to choose the primary country. If they intentionally want a multi-country regional project, record both:
+
+```yaml
+market:
+  primary_country:
+  secondary_markets:
+```
+
+The primary country controls the first-pass research, local reality checks, character behavior, institutions, money, occupations, social norms, and dialogue localization.
+
+Only after the target country is established may the workflow continue.
+
 ## Research order
 
 ### 1. Define market
@@ -29,7 +53,9 @@ market:
   research_window:
 ```
 
-If country is missing and the desired language is English, begin with the United States but label the assumption.
+`country` is required. Never invent or assume it.
+
+Once country is known, infer language only when it is obvious and safe to do so. If the country has multiple major language markets and language materially affects the content, confirm the intended language.
 
 ### 2. Gather short-drama signals
 
