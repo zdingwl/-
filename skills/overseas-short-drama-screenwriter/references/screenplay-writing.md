@@ -1,191 +1,227 @@
-# Screenplay Writing Reference
+# 剧本写作参考（中文主稿）
 
-Use this file when moving from outline to dramatized scenes.
+用于把大纲真正写成可直接审阅的完整剧本。
 
-## 1. Screenplay principle
+## 1. 总原则
 
-Write what the audience can see and hear.
+只写观众能够看到和听到的内容。
 
-Avoid novelistic internal description unless the project intentionally uses voice-over or narration.
+默认主稿语言：**中文**。
 
-Weak:
+海外项目的“本地化”体现在人物、环境、制度、职业、关系与对白逻辑，而不是要求整份剧本必须用英文。
 
-> Emma realizes she has wasted ten years of her life.
-
-Better:
-
-> Emma removes her wedding ring. She stares at the pale mark on her finger, then drops the ring into Daniel's coffee.
-
-## 2. Basic format
-
-For English-language screenplay delivery, use:
+## 2. 默认剧本格式
 
 ```text
-EPISODE 01
+第1集
 
-INT. APARTMENT - NIGHT
+场次 1
+内景｜纽约 · 艾玛公寓｜夜
 
-Emma stops in the doorway.
+艾玛停在门口。
 
-A pair of red heels sits beside Daniel's shoes.
+丹尼尔的皮鞋旁，放着一双陌生的红色高跟鞋。
 
-EMMA
-Daniel?
+卧室里传出女人的笑声。
 
-A laugh comes from the bedroom.
+艾玛
+丹尼尔？
+
+卧室里突然安静。
 ```
 
-Core elements:
+核心元素：
 
-- scene heading / slugline
-- action
-- character cue
-- dialogue
-- parenthetical only when necessary
-- transitions only when useful
+- 中文场次号
+- 中文场景标题
+- 中文动作描述
+- 角色名
+- 对白
+- 必要时才使用括号说明
 
-## 3. Scene headings
+## 3. 英文对白对照格式
 
-Use consistent format:
+目标市场需要英语对白时：
 
 ```text
-INT. LOCATION - DAY
-EXT. LOCATION - NIGHT
-INT./EXT. CAR - MOVING - DAY
+艾玛（EMMA）
+英文：Daniel, what is this?
+中文：丹尼尔，这是什么？
 ```
 
-Do not overcomplicate sluglines.
+每句英文必须紧跟中文翻译。
 
-## 4. Action lines
+禁止：
 
-Action should be:
+- 只给英文不翻译
+- 整场英语结束后再统一翻译
+- 只总结中文大意
 
-- present tense
-- visual
-- specific
-- concise
-- playable by actors
+## 4. 场景标题
 
-Prefer short paragraphs, especially for vertical short-form drama.
-
-Avoid long backstory dumps inside action description.
-
-## 5. Enter late, leave early
-
-Start scenes as close as possible to the conflict.
-
-Instead of:
+统一使用：
 
 ```text
-character arrives
-parks
-walks through lobby
-enters elevator
-reaches office
-sits down
-conversation begins
+内景｜地点｜时间
+外景｜地点｜时间
 ```
 
-begin where the dramatic interaction starts unless the approach contains meaningful tension.
-
-End once the dramatic turn has landed.
-
-## 6. Scene objective
-
-Every scene should answer:
+例如：
 
 ```text
-Who wants what right now?
-Who or what blocks them?
-What tactic do they use?
-What changes before the scene ends?
+内景｜纽约 · 曼哈顿公寓｜夜
+外景｜洛杉矶 · 法院门口｜白天
+内外景｜行驶中的汽车｜傍晚
 ```
 
-A scene without a turn is usually exposition or filler.
+不要因为目标市场是英语国家就强制写 INT./EXT.，除非用户明确要求传统英文 screenplay 格式。
 
-## 7. Action-reaction rhythm
+## 5. 动作描写
 
-Useful scene rhythm:
+动作必须：
+
+- 中文
+- 现在时感
+- 可视化
+- 简洁
+- 具体
+- 可由演员执行
+
+弱：
+
+> 艾玛意识到自己十年的婚姻都浪费了。
+
+更好：
+
+> 艾玛摘下婚戒，看着指根那圈浅白色痕迹。她把戒指扔进丹尼尔的咖啡杯。
+
+## 6. 场景尽量晚进早出
+
+不重要的：
 
 ```text
-ACTION
-→ RESPONSE
-→ COUNTERMOVE
-→ NEW INFORMATION
-→ CHANGED TACTIC
-→ TURN
+停车
+下车
+进大厅
+按电梯
+上楼
+进办公室
 ```
 
-Do not write dialogue as alternating speeches disconnected from behavior.
+如果不承载戏剧信息，可以直接从冲突开始。
 
-## 8. Dialogue rules
-
-Dialogue should sound spoken, not written.
-
-Prefer:
-
-- short lines under pressure
-- interruptions
-- incomplete sentences
-- strategic silence
-- subtext
-- character-specific vocabulary
-
-Avoid:
-
-- repeating visible action
-- restating the plot
-- naming emotions directly when action already shows them
-- having characters explain shared history
-- giving every character the same polished voice
-
-## 9. Exposition test
-
-Bad exposition:
+## 7. 每场戏必须回答
 
 ```text
-SARAH
-As you know, after Dad died ten years ago, Mom moved us to Boston and Uncle Peter took over the company.
+谁现在想得到什么？
+谁或什么阻止他？
+他采取什么策略？
+场景结束前发生了什么变化？
 ```
 
-Better exposition emerges through conflict:
+没有变化的场景通常是说明或填充。
+
+## 8. 动作—反应节奏
 
 ```text
-SARAH
-You don't get to call this your company.
-
-PETER
-I kept it alive after your father died.
-
-SARAH
-You kept the chair. That's not the same thing.
+行动
+→ 反应
+→ 反制
+→ 新信息
+→ 改变策略
+→ 场景转折
 ```
 
-## 10. Subtext
+不要只写角色轮流发表台词。
 
-Strong dramatic dialogue often has two layers:
+## 9. 对白规则
+
+对白应像人真正说出来的话。
+
+优先：
+
+- 短句
+- 打断
+- 半句话
+- 沉默
+- 潜台词
+- 身份和职业差异
+
+避免：
+
+- 重复画面已经表达的内容
+- 重复剧情
+- 角色互相解释双方都知道的历史
+- 每个人都说同一种漂亮话
+
+## 10. 英语对白规则
+
+英语对白必须先满足目标市场自然度，再翻译成自然中文。
+
+例如：
 
 ```text
-spoken subject
-vs.
-actual objective
+艾玛（EMMA）
+英文：I'm done begging you to choose me.
+中文：我不会再求你选择我了。
 ```
 
-Example:
+不要为了逐字对应写成僵硬英语。
+
+不要把中文语序机械搬进英文。
+
+中文翻译也不要求逐词直译，重点是准确传达：
+
+- 语义
+- 语气
+- 情绪
+- 潜台词
+
+## 11. 说明性对白检查
+
+差：
 
 ```text
-MAYA
-Are you coming home tonight?
-
-NOAH
-Depends how late the meeting runs.
+莎拉
+哥哥，你应该记得，十年前爸爸去世以后，妈妈把我们带到波士顿，然后彼得叔叔接管了公司。
 ```
 
-The surface topic is schedule. The scene may actually be about suspicion, avoidance, or intimacy.
+更好：
 
-## 11. Character voice fingerprints
+```text
+莎拉
+你没资格说这是你的公司。
 
-Differentiate by:
+彼得
+你爸死后，是我让它活下来的。
+
+莎拉
+你只是坐上了他的椅子。
+```
+
+## 12. 潜台词
+
+强对白往往存在：
+
+```text
+说出来的内容
+≠
+人物真正想得到的东西
+```
+
+例如：
+
+```text
+玛雅
+今晚回来吗？
+
+诺亚
+看会议几点结束。
+```
+
+表面是时间，实际可能是怀疑、逃避或关系疏离。
+
+## 13. 角色声音指纹
 
 ```yaml
 voice:
@@ -200,155 +236,135 @@ voice:
   profession_specific_language:
 ```
 
-A useful test:
+测试：
 
-> If character names are removed, can the writer still guess who is speaking?
+> 把角色名字删掉，还能不能大致判断是谁在说话？
 
-## 12. Parentheticals
+## 14. 视觉叙事
 
-Use sparingly.
+尽量把“解释”转换成：
 
-Avoid directing every line:
+- 行为
+- 物件
+- 环境
+- 对比
+- 中断
+- 决定
+
+不要直接写：
+
+> 他很穷。
+
+可以写：
+
+> 收银机再次提示支付失败。他把药盒放回柜台，只留下最便宜的一盒。
+
+## 15. 短剧节奏
+
+竖屏短剧：
+
+- 尽快进入戏剧压力
+- 少做无意义铺垫
+- 场景数量服务于剧情
+- 一场戏一个主冲突
+- 反转前铺垫要短而有效
+- 结尾留下具体问题
+
+快节奏不是不停吵架。
+
+快节奏是：**单位时间内剧情状态变化多。**
+
+## 16. 冲突类型要变化
+
+可使用：
+
+- 语言冲突
+- 信息隐瞒
+- 目标不一致
+- 地位压力
+- 爱情张力
+- 谈判
+- 截止时间
+- 身体障碍
+- 社交曝光
+- 法律威胁
+- 道德选择
+
+如果每场戏都是争吵，节奏反而会变平。
+
+## 17. Reveal
+
+好的揭露应该改变：
+
+- 认知
+- 目标
+- 关系
+- 策略
+- 风险
+
+新信息如果什么都不改变，就不是有效反转。
+
+## 18. Cliffhanger
+
+弱：
+
+> 艾玛不知道接下来会发生什么。
+
+强：
+
+> 艾玛打开信封。
+>
+> 结婚证上的丈夫，是一个她从未见过的名字。
+
+下一集因此产生清晰问题。
+
+## 19. 情绪兑现
+
+短剧需要周期性满足观众：
+
+- 被低估的主角公开反击
+- 谎言曝光
+- 爱意得到回应
+- 反派失去筹码
+- 身份秘密部分揭露
+- 主角获得新盟友
+
+兑现后最好产生新后果，而不是让故事停住。
+
+## 20. 重写压缩
+
+删掉：
+
+- 无意义寒暄
+- 重复提问
+- 重复解释
+- 画面结束后的总结
+- 冲突前无效铺垫
+- 动作已经表达过的情绪台词
+
+## 21. 剧本边界
+
+除非用户明确要求，否则不要混入：
+
+- 特写
+- 推镜
+- 35mm
+- 航拍
+- 摇镜
+- 生图提示词
+- 视频提示词
+- 灯光提示词
+
+剧本负责“发生什么”，下游制作 Skill 决定“怎么拍”。
+
+## 22. 终稿语言检查
 
 ```text
-EMMA
-(angrily)
-I hate you.
+□ 场景说明为中文
+□ 动作为中文
+□ 人物说明为中文
+□ 英文对白逐句有中文翻译
+□ 其他外语对白逐句有中文翻译
+□ 中文翻译自然准确
+□ 无大段纯英文遗漏
 ```
-
-If context and wording already make the intention clear, omit it.
-
-Use parentheticals only when delivery would otherwise be genuinely ambiguous.
-
-## 13. Visual storytelling
-
-When possible, convert exposition into:
-
-- behavior
-- objects
-- contrast
-- interruption
-- environment
-- decisions
-
-Example:
-
-Instead of telling us a character is broke, show:
-
-- declined card
-- eviction notice
-- counting coins at a pharmacy
-- choosing which bill not to pay
-
-## 14. Microdrama pacing
-
-For short vertical episodes:
-
-- reach dramatic tension quickly
-- avoid long establishing passages
-- keep scene count purposeful
-- give each scene one dominant conflict
-- use short setup before reversal
-- end on a specific unanswered consequence
-
-Do not confuse fast pacing with constant yelling.
-
-Fast pacing means high narrative movement per minute.
-
-## 15. Conflict variety
-
-Use different conflict modes:
-
-- verbal conflict
-- withheld information
-- incompatible goals
-- status pressure
-- romantic tension
-- negotiation
-- deadline
-- physical obstacle
-- social exposure
-- legal threat
-- moral choice
-
-If every scene is an argument, the script becomes flat.
-
-## 16. Reveal writing
-
-A reveal works best when it changes:
-
-- interpretation
-- goal
-- relationship
-- strategy
-- risk
-
-Weak reveal:
-
-> New information that changes nothing.
-
-Strong reveal:
-
-> New information that forces a new decision.
-
-## 17. Cliffhanger writing
-
-A cliffhanger should be concrete.
-
-Weak:
-
-> Emma had no idea what was coming next.
-
-Strong:
-
-> Emma opens the envelope.
->
-> The marriage certificate lists a husband she has never met.
-
-The next episode now has a clear question.
-
-## 18. Emotional payoff
-
-A short-form series needs frequent satisfaction.
-
-Possible payoffs:
-
-- the underestimated lead wins publicly
-- a lie is exposed
-- attraction is reciprocated
-- a villain loses leverage
-- a character finally apologizes
-- a hidden identity is partially revealed
-- the lead gains a new ally
-
-A payoff should create a new consequence rather than ending momentum.
-
-## 19. Rewrite compression
-
-On rewrite, remove:
-
-- greetings that do not matter
-- repeated questions
-- repeated explanations
-- summary after a visible event
-- throat-clearing before conflict
-- emotional lines already expressed by action
-
-Try to enter every scene later and leave earlier without losing meaning.
-
-## 20. Screenplay-only boundary
-
-Do not include:
-
-- close-up
-- push-in
-- 35mm lens
-- drone shot
-- camera pans
-- image prompt
-- video prompt
-- lighting prompt
-
-unless the user explicitly requests directing information.
-
-The screenplay describes dramatic action; downstream skills decide how to shoot or generate it.
