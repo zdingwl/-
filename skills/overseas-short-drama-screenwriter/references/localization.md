@@ -1,48 +1,61 @@
-# Localization Reference
+# 本地化参考（目标国家逻辑 + 中文主稿）
 
-Use this file when adapting a concept for a specific country or language market.
+本文件用于把故事真正写成符合目标国家社会逻辑的作品。
 
-## Principle
+## 0. 最重要原则
 
-Localization is not name replacement.
+本地化不是换名字，也不是把整份剧本改成英文。
 
-A localized drama should feel as if the story was conceived inside the target culture.
-
-## 1. Local reality audit
-
-Check every material story assumption that could break credibility:
+正确理解：
 
 ```text
-family structure
-marriage / divorce
-inheritance
-employment
-company hierarchy
-wealth markers
-school / university
-medicine / hospitals
-policing
-courts / contracts
-housing
-banking / payments
-transportation
-child custody
-immigration where relevant
-social media behavior
-religion where relevant
-holidays
-alcohol / nightlife norms where relevant
+目标国家的社会逻辑
++
+目标国家的人物行为
++
+目标国家的职业 / 法律 / 家庭 / 恋爱方式
++
+目标国家自然语言逻辑
++
+中文主剧本输出
 ```
 
-Research the facts that affect plot causality.
+因此：
 
-Do not over-research trivial details that do not matter to the story.
+- 故事发生在美国，不等于整份剧本必须英文。
+- 英语对白可以保留，但必须附中文翻译。
+- 中文团队看到的剧本仍应当是完整中文可读稿。
 
-## 2. Setting specificity
+## 1. Local Reality Audit
 
-Avoid generic “Western city” writing.
+检查所有会影响剧情可信度的现实设定：
 
-Define:
+```text
+家庭结构
+婚姻 / 离婚
+遗产 / 信托
+公司与雇佣关系
+社会阶层
+学校 / 大学
+医疗 / 医院
+警察
+法院 / 合同
+住房
+银行 / 支付
+交通
+监护权
+移民（相关时）
+社交媒体
+宗教（相关时）
+节日
+夜生活 / 饮酒文化（相关时）
+```
+
+只研究真正影响剧情因果的事实。
+
+## 2. 地域必须具体
+
+避免“某个西方城市”。
 
 ```yaml
 setting:
@@ -56,11 +69,11 @@ setting:
   local_status_symbols:
 ```
 
-A New York finance story should not feel identical to a Texas energy-family story or a Los Angeles entertainment-industry story.
+纽约金融故事、德州能源家族故事、洛杉矶娱乐行业故事不能只是换城市名。
 
-## 3. Wealth and power localization
+## 3. 财富与权力本地化
 
-Do not automatically translate Chinese prestige shorthand such as:
+不要把中国短剧里的：
 
 - 首富
 - 财阀
@@ -68,9 +81,9 @@ Do not automatically translate Chinese prestige shorthand such as:
 - 豪门少爷
 - 家主
 
-Find a locally credible form of power.
+直接翻译过去。
 
-Depending on market and story, examples may include:
+根据目标国家与题材选择可信的权力结构，例如：
 
 - old-money family
 - private-equity partner
@@ -82,49 +95,48 @@ Depending on market and story, examples may include:
 - hotel / hospitality family
 - political dynasty
 - celebrity entrepreneur
-- surgeon from a prominent medical family
+- prominent medical family
 
-Use only what fits the target culture and genre.
+这些只是类型示例，具体设定必须服务故事。
 
-## 4. Family conflict localization
+## 4. 家族权力必须有机制
 
-Check whether the family has believable authority.
+成年人为什么听家族安排？
 
-Avoid plot logic where an adult character obeys a patriarch simply because “the family ordered it” unless there is a real mechanism such as:
+需要真实机制，例如：
 
-- inheritance condition
-- financial dependency
-- family business control
-- immigration dependence
-- reputation / community pressure
-- religious or cultural expectations
-- custody leverage
-- legal trust structure
+- 信托条件
+- 经济依赖
+- 家族企业控制
+- 身份 / 移民依赖
+- 声誉压力
+- 宗教或社区压力
+- 监护权
+- 遗产条件
 
-Power should have a mechanism.
+不能仅仅因为“爷爷说了算”。
 
-## 5. Romance localization
+## 5. 恋爱与婚姻本地化
 
-Validate:
+检查：
 
-- dating pace
-- exclusivity assumptions
-- engagement customs
-- wedding customs
-- cohabitation
-- divorce behavior
-- public displays of affection
-- workplace romance norms
-- age-gap sensitivity
-- consent and power imbalance
+- 约会节奏
+- exclusivity 默认认知
+- 同居
+- 订婚
+- 婚礼习惯
+- 离婚方式
+- PDA
+- 职场恋爱
+- 年龄差敏感度
+- consent
+- 权力不对等
 
-Do not import melodramatic behavior that would make characters look unintentionally irrational to the target audience.
+不要把在目标市场看起来极其不合理的行为当成“狗血”。
 
-## 6. Profession localization
+## 6. 职业本地化
 
-Characters should have jobs that operate plausibly.
-
-For each important profession, know:
+主要职业至少知道：
 
 ```yaml
 profession:
@@ -137,123 +149,147 @@ profession:
   realistic_constraints:
 ```
 
-Do not make a CEO personally perform every operational task.
+CEO 不应该亲自完成所有工作。
 
-Do not make doctors, lawyers, police, teachers, or executives behave contrary to basic professional realities unless the violation is part of the plot.
+医生、律师、警察、教师、投资人、高管等角色的行为必须基本符合职业现实，除非违规本身就是剧情。
 
-## 7. Dialogue localization
+## 7. 对白本地化
 
-Write target-language dialogue as native dramatic speech, not translated Chinese syntax.
+如果人物现实中说英语，则创作英语对白时应该像英语母语者的戏剧对白，而不是中文句子逐字翻译。
 
-### Avoid
+避免：
 
-- excessive full names in intimate conversations
-- repeated relationship labels (“As your wife...”, “As your brother...”)
-- formal exposition in casual scenes
-- idioms translated literally
-- unnatural honorific logic
-- overly explanatory emotional statements
+- 亲密关系中频繁叫全名
+- “作为你的妻子/哥哥/老板”式身份解释
+- 口语场景里的正式说明文
+- 中文成语字面翻译
+- 不自然的敬称逻辑
+- 把人物心情全部说透
 
-### Prefer
+优先：
 
-- contractions in natural English where appropriate
+- contractions
 - interruptions
 - fragments
 - implication
 - culturally natural sarcasm
-- rhythm that reflects age and class
-- different registers for work, family, romance, conflict
+- 不同年龄 / 阶层 / 职业的语域区别
 
-## 8. English dialogue quick test
+## 8. 英语对白 + 中文翻译双层规则
 
-For each line ask:
+目标市场需要英语对白时，先写自然英语，再给自然中文翻译。
 
-1. Would a person say this aloud?
-2. Would this character say it this way?
-3. Does the other character already know this fact?
-4. Can the line be shorter?
-5. Is the emotion already visible in action?
-6. Is the line translated logic rather than English logic?
-
-## 9. Names
-
-Names should fit:
-
-- country
-- age cohort
-- family background
-- ethnicity only where narratively relevant
-- class / subculture when useful
-
-Do not overuse stereotypical names.
-
-Do not infer ethnicity from a name unless the story actually establishes it.
-
-## 10. Currency and money
-
-Use local currency and believable amounts.
-
-Check:
-
-- salary scale
-- rent / property logic
-- hospital bills if plot-critical
-- legal settlement amounts
-- business valuation claims
-- inheritance size
-
-Exact realism is less important than avoiding obviously absurd scale.
-
-## 11. Legal / institutional caution
-
-When a story depends on law or institutions, verify the target jurisdiction.
-
-Examples:
-
-- marriage validity
-- divorce
-- prenups
-- trusts
-- inheritance
-- restraining orders
-- police procedure
-- child custody
-- employment termination
-- medical consent
-
-If uncertain, write around the uncertain mechanism until researched.
-
-## 12. Cultural translation test
-
-Before finalizing, ask:
+格式：
 
 ```text
-If all character names were hidden,
-would the social behavior still feel native to the target market?
+艾玛（EMMA）
+英文：You don't get to decide that for me.
+中文：这件事轮不到你替我决定。
 ```
 
-If not, localization is incomplete.
+中文不是逐词注释，而是给中文团队准确理解人物真正说了什么。
 
-## 13. Stereotype safety
+必须保留：
 
-Do not use culture, race, religion, nationality, gender, or class as lazy shorthand for personality.
+- 情绪强度
+- 礼貌程度
+- 讽刺
+- 威胁
+- 潜台词
+- 人物身份差异
 
-Specificity should come from character biography and setting, not caricature.
+## 9. 英语对白快速检查
 
-## 14. Final localization checklist
+每句问：
+
+1. 现实中有人会这么说吗？
+2. 这个角色会这么说吗？
+3. 对方是不是已经知道这条信息？
+4. 能不能更短？
+5. 情绪是否已经被动作表达？
+6. 这是不是中文逻辑硬翻成英语？
+7. 对应中文是否准确表达同样的戏剧意图？
+
+## 10. 人名
+
+人名应符合：
+
+- 国家
+- 年龄段
+- 家庭背景
+- 社会阶层（相关时）
+- 族裔（只有剧情真正需要时）
+
+不要堆砌刻板印象式姓名。
+
+中文主稿首次出现可写：
 
 ```text
-□ geography is coherent
-□ travel times make sense
-□ names fit
-□ money feels plausible
-□ jobs behave plausibly
-□ family power has a mechanism
-□ romance behavior fits the market
-□ legal assumptions are checked when plot-critical
-□ institutions are plausible
-□ dialogue sounds native
-□ jokes and insults do not read like literal translation
-□ the story does not rely on unexplained Chinese social logic
-□ cultural details serve the story rather than decorate it
+艾玛·卡特（Emma Carter），29岁，纽约商业诉讼律师。
+```
+
+后续可简写“艾玛”。
+
+## 11. 货币与金额
+
+使用当地货币，并避免明显荒谬的金额。
+
+必要时核实：
+
+- 薪资
+- 房租 / 房价
+- 医疗费用
+- 和解金额
+- 企业估值
+- 遗产规模
+
+## 12. 法律与制度
+
+剧情依赖以下内容时需要核实目标司法辖区：
+
+- 婚姻有效性
+- 离婚
+- 婚前协议
+- 信托
+- 遗产
+- restraining order
+- 警察程序
+- 监护权
+- 解雇
+- 医疗同意
+
+## 13. 文化测试
+
+隐藏所有人物姓名后再问：
+
+> 这些人的行为、选择、关系和制度逻辑，仍然像发生在目标国家吗？
+
+如果不像，说明只是“换了英文名”，本地化失败。
+
+## 14. 中文输出测试
+
+再问：
+
+> 中文团队不懂英文，只阅读主稿，是否能完整理解每一场戏和每一句关键对白？
+
+如果不能，说明交付失败。
+
+## 15. 最终检查
+
+```text
+□ 地理逻辑一致
+□ 距离合理
+□ 人名合适
+□ 金额可信
+□ 职业行为可信
+□ 家族权力有机制
+□ 恋爱行为符合市场
+□ 法律关键点已核实
+□ 社会机构行为可信
+□ 英语对白自然
+□ 没有中文直译腔
+□ 故事没有依赖未解释的中国社会逻辑
+□ 场景和动作以中文输出
+□ 所有外语对白都有中文翻译
+□ 中文翻译保留人物语气与潜台词
 ```
