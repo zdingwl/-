@@ -1,0 +1,23 @@
+name: Skill Quality Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Markdown check
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: |
+            **/*.md
+
+      - name: Skill structure validation
+        run: |
+          python skills/overseas-short-drama-screenwriter/scripts/validate_skill.py
