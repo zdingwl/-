@@ -173,3 +173,40 @@ Premise
 - 不自动进入分镜
 - 不输出镜头、焦段、生图 / 视频提示词
 - 用户要完整剧本时一定进入正文
+
+
+---
+
+## 9. Genre Engine
+
+如果类型明确，可以直接指定：
+
+```text
+读取主 Skill。
+
+Primary Genre：Mystery
+Secondary Genre：Family Drama
+Tone：克制、现实主义
+
+先建立 Genre Contract，
+Mystery 负责核心问题链与 Reveal，
+Family Drama 只增强人物关系和情绪，
+不要混入高爽短剧规则。
+```
+
+或者：
+
+```text
+Primary Genre：Romance
+要求：
+- 慢燃
+- 不靠重复误会
+- 双方都有主动性
+- 每次关系靠近 / 疏远都有具体事件依据
+```
+
+当前类型模块见：
+
+`references/genres/README.md`
+
+默认只加载 Primary Genre 和必要 Secondary Genre。
