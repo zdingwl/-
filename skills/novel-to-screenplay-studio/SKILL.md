@@ -2,11 +2,11 @@
 name: novel-to-screenplay-studio
 description: >
   小说/IP改编与原创剧本的一体化编剧 Skill。支持小说、网文、故事梗概、真实素材或原创概念转化为电影、电视剧/流媒体剧集、短剧和动画剧本。核心能力包括源素材拆解、改编取舍、叙事视角转换、内心戏外化、人物合并与弧光重构、结构与节拍、分集与场景设计、对白与潜台词、剧本格式、连续性/知识状态管理、剧本医生修订和独立质检。默认简体中文；只写剧本层内容，不自动进入分镜、摄影、图片或视频生成。
-version: 2.0.0
+version: 2.1.0
 language: zh-CN
 ---
 
-# Novel To Screenplay Studio 2.0
+# Novel To Screenplay Studio 2.1
 
 ## 0. 核心定位
 
@@ -90,7 +90,27 @@ task_router:
 - `references/original-screenplay-engine.md`
 - `workflows/original-screenplay.md`
 
-## 2.3 媒介路由
+## 2.3 长篇 / 百万字改编入口
+
+当素材满足任一条件时，优先进入 Long-form Adaptation：
+
+- 多卷 / 多文件
+- 数十万字以上长篇
+- 大量 POV、秘密或跨时间线
+- 30+ 集目标
+- 用户明确要求先完整读取再整体改编
+
+先读取：
+
+- `workflows/project-initialization.md`
+- `references/source-ingestion.md`
+- `workflows/long-novel-adaptation.md`
+- `references/chapter-to-screen-mapping.md`
+- `references/adaptation-scoring.md`
+
+禁止在只读到前部素材时锁定全剧 Story DNA、结局或集数结构。
+
+## 2.4 媒介路由
 
 确定载体后读取：
 
@@ -602,6 +622,23 @@ Story Bible / 人物知识 / 时间线 / 伏笔
 → evaluations/rubric.md
 → evaluations/cases.md
 ```
+
+项目初始化
+→ workflows/project-initialization.md
+→ templates/README.md
+
+长篇 / 百万字源素材读取
+→ references/source-ingestion.md
+→ workflows/long-novel-adaptation.md
+
+章节 / 卷到影视结构映射
+→ references/chapter-to-screen-mapping.md
+
+改编适配度、压缩压力和风险
+→ references/adaptation-scoring.md
+
+项目模板
+→ templates/
 
 只读取当前阶段必要文件。
 
