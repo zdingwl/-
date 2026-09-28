@@ -75,3 +75,19 @@ Skill 大版本升级时使用。
 - Reviewer 是否越权直接改正典
 - 多 Review 冲突是否进入 Executive Review
 - Rewrite 后是否重跑正确的依赖 Pass
+
+
+## Genre Engine 专项回归
+
+运行：
+
+`genre-cases.md`
+
+重点检查：
+
+- Primary Genre 是否持续兑现
+- Secondary Genre 是否只做增强
+- 慢燃是否被错误套成高频反转
+- 悬疑证据是否公平
+- 高爽是否依赖主角主动性
+- 不同类型是否仍保持明显差异
