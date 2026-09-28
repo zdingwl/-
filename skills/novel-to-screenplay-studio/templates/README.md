@@ -70,3 +70,11 @@ Knowledge State
 - `Executive_Review_Template.md`
 
 Reviewer 模板用于“只读审稿”；正式改稿统一进入 `workflows/rewrite-orchestration.md`。
+
+
+## Genre
+
+- `Genre_Contract_Template.md`
+- `Genre_Review_Template.md`
+
+类型模块索引：`references/genres/README.md`
