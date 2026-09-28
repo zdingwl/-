@@ -49,6 +49,14 @@ skills/
 → Final
 ```
 
+### 快速开始
+
+- 主 Skill：`skills/novel-to-screenplay-studio/SKILL.md`
+- 中文使用手册：`skills/novel-to-screenplay-studio/docs/USAGE.zh-CN.md`
+- 小说改编示例：`skills/novel-to-screenplay-studio/examples/Example_Adaptation_Project.md`
+- 原创剧本示例：`skills/novel-to-screenplay-studio/examples/Example_Original_Project.md`
+- 版本记录：`skills/novel-to-screenplay-studio/CHANGELOG.md`
+
 ### 关键文件
 
 ```text
