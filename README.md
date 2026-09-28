@@ -67,23 +67,39 @@ skills/
 skills/novel-to-screenplay-studio/
 ├── SKILL.md
 ├── README.md
+├── VERSION
+├── CHANGELOG.md
+├── docs/
+├── examples/
+├── templates/
 ├── references/
 │   ├── knowledge-map-120.md
 │   ├── adaptation-engine.md
 │   ├── original-screenplay-engine.md
+│   ├── source-ingestion.md
+│   ├── chapter-to-screen-mapping.md
 │   ├── medium-profiles.md
+│   ├── genre-engine.md
+│   ├── genres/
 │   ├── scene-dialogue-craft.md
 │   ├── continuity-story-bible.md
-│   ├── revision-quality-gates.md
-│   ├── output-templates.md
-│   └── craft-sources.md
+│   ├── review-pass-system.md
+│   ├── review-conflict-resolution.md
+│   └── revision-quality-gates.md
 ├── workflows/
+│   ├── project-initialization.md
 │   ├── novel-adaptation.md
-│   └── original-screenplay.md
+│   ├── long-novel-adaptation.md
+│   ├── original-screenplay.md
+│   ├── story-bible-generation.md
+│   ├── writers-room-review.md
+│   └── rewrite-orchestration.md
 └── evaluations/
     ├── README.md
     ├── rubric.md
-    └── cases.md
+    ├── cases.md
+    ├── review-pass-cases.md
+    └── genre-cases.md
 ```
 
 ### 120 知识点地图
