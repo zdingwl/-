@@ -4,7 +4,7 @@
 
 ### Added
 
-- 14 个项目执行模板：Project State、Story Bible、Source Index、Source Analysis、Adaptation Bible、Character Bible、Relationship Map、Timeline、Secret Ledger、Knowledge State、Setup/Payoff、Episode Map、Scene List、Script Draft、Revision Report 等
+- 17 个项目执行模板：Project State、Story Bible、Source Index、Source Analysis、Adaptation Bible、Character Bible、Relationship Map、Timeline、Secret Ledger、Knowledge State、Setup/Payoff、Episode Map、Scene List、Script Draft、Revision Report 等
 - 长篇 / 百万字小说专用改编工作流
 - Source Index 三层读取策略
 - Chapter Function Map
