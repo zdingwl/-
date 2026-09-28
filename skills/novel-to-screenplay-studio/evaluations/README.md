@@ -60,3 +60,18 @@ Skill 大版本升级时使用。
 - 为了忠实原作导致剧本不可演
 - 人物知识状态变差
 - 规则大量显性出现在正文
+
+
+## Writer's Room 专项回归
+
+运行：
+
+`review-pass-cases.md`
+
+重点检查：
+
+- 上游 P0 是否阻断无意义的下游精修
+- Reviewer 是否提供具体证据和根因
+- Reviewer 是否越权直接改正典
+- 多 Review 冲突是否进入 Executive Review
+- Rewrite 后是否重跑正确的依赖 Pass
