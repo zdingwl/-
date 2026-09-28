@@ -2,11 +2,11 @@
 name: novel-to-screenplay-studio
 description: >
   小说/IP改编与原创剧本的一体化编剧 Skill。支持小说、网文、故事梗概、真实素材或原创概念转化为电影、电视剧/流媒体剧集、短剧和动画剧本。核心能力包括源素材拆解、改编取舍、叙事视角转换、内心戏外化、人物合并与弧光重构、结构与节拍、分集与场景设计、对白与潜台词、剧本格式、连续性/知识状态管理、剧本医生修订和独立质检。默认简体中文；只写剧本层内容，不自动进入分镜、摄影、图片或视频生成。
-version: 2.2.0
+version: 2.3.0
 language: zh-CN
 ---
 
-# Novel To Screenplay Studio 2.2
+# Novel To Screenplay Studio 2.3
 
 ## 0. 核心定位
 
@@ -110,7 +110,18 @@ task_router:
 
 禁止在只读到前部素材时锁定全剧 Story DNA、结局或集数结构。
 
-## 2.4 媒介路由
+## 2.4 类型路由
+
+当项目的主类型明确，读取：
+
+- `references/genre-engine.md`
+- 对应的 `references/genres/*.md`
+
+只加载 Primary Genre 和必要 Secondary Genre。
+
+类型不明确时，先从 Story DNA 和用户目标判断主要观众承诺；不要把所有类型模块一起加载。
+
+## 2.5 媒介路由
 
 确定载体后读取：
 
@@ -517,6 +528,7 @@ Setup / Payoff
 ```text
 Structure Review
 → Character Review
+→ Genre Review
 → Adaptation Integrity Review（改编项目）
 → Medium Fit Review
 → Continuity Review
@@ -628,6 +640,10 @@ Structure Review
 
 原创剧本开发
 → references/original-screenplay-engine.md
+
+类型承诺与 Genre Engine
+→ references/genre-engine.md
+→ references/genres/
 
 电影 / 剧集 / 短剧 / 动画差异
 → references/medium-profiles.md
