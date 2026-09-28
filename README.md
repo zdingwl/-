@@ -1,246 +1,196 @@
 # Screenplay Skills Studio
 
-这是一个面向 ChatGPT / Agent Skills 的编剧 Skill 仓库。
+这是一个面向 ChatGPT / Agent Skills 的影视编剧 Skill 仓库。
 
-当前包含两套互补系统：
+当前包含三套分工明确、可以组合使用的系统：
 
-```text
+~~~text
 skills/
+├── screenplay-studio/
 ├── novel-to-screenplay-studio/
 └── overseas-short-drama-screenwriter/
-```
+~~~
 
 ---
 
-# 1. Novel To Screenplay Studio
+# 1. Screenplay Studio —— 通用编剧主系统
 
 路径：
 
-`skills/novel-to-screenplay-studio/SKILL.md`
+skills/screenplay-studio/SKILL.md
 
-用于：
+这是默认的“写剧本”入口。
 
-- 小说 / 网文 / IP → 电影剧本
-- 小说 / 网文 / IP → 电视剧 / 流媒体剧集
-- 小说 / 网文 / IP → 短剧
-- 小说 / IP → 动画剧本
-- 一个概念 → 原创电影
-- 一个概念 → 原创剧集
-- 一个概念 → 原创短剧
-- 一个概念 → 原创动画
-- 剧本诊断与重写
+适用于：
 
-核心不是“把小说改成对白”，而是：
-
-```text
-读取素材
-→ 提取 Story DNA
-→ 改编取舍
-→ 内心戏外化
-→ 人物 / 支线重构
-→ POV / 时间 / Reveal 重排
-→ 媒介适配
-→ 结构
-→ Beat / Episode
-→ Scene
-→ 完整剧本
-→ Story Bible
-→ Script Doctor
-→ Final
-```
-
-### 快速开始
-
-- 主 Skill：`skills/novel-to-screenplay-studio/SKILL.md`
-- 项目模板：`skills/novel-to-screenplay-studio/templates/README.md`
-- 长篇小说工作流：`skills/novel-to-screenplay-studio/workflows/long-novel-adaptation.md`
-- Writer's Room 审稿：`skills/novel-to-screenplay-studio/workflows/writers-room-review.md`
-- Genre Engine：`skills/novel-to-screenplay-studio/references/genre-engine.md`
-- 中文使用手册：`skills/novel-to-screenplay-studio/docs/USAGE.zh-CN.md`
-- 小说改编示例：`skills/novel-to-screenplay-studio/examples/Example_Adaptation_Project.md`
-- 原创剧本示例：`skills/novel-to-screenplay-studio/examples/Example_Original_Project.md`
-- 版本记录：`skills/novel-to-screenplay-studio/CHANGELOG.md`
-
-### 关键文件
-
-```text
-skills/novel-to-screenplay-studio/
-├── SKILL.md
-├── README.md
-├── VERSION
-├── CHANGELOG.md
-├── docs/
-├── examples/
-├── templates/
-├── references/
-│   ├── knowledge-map-120.md
-│   ├── adaptation-engine.md
-│   ├── original-screenplay-engine.md
-│   ├── source-ingestion.md
-│   ├── chapter-to-screen-mapping.md
-│   ├── medium-profiles.md
-│   ├── genre-engine.md
-│   ├── genres/
-│   ├── scene-dialogue-craft.md
-│   ├── continuity-story-bible.md
-│   ├── review-pass-system.md
-│   ├── review-conflict-resolution.md
-│   └── revision-quality-gates.md
-├── workflows/
-│   ├── project-initialization.md
-│   ├── novel-adaptation.md
-│   ├── long-novel-adaptation.md
-│   ├── original-screenplay.md
-│   ├── story-bible-generation.md
-│   ├── writers-room-review.md
-│   └── rewrite-orchestration.md
-└── evaluations/
-    ├── README.md
-    ├── rubric.md
-    ├── cases.md
-    ├── review-pass-cases.md
-    └── genre-cases.md
-```
-
-### 120 知识点地图
-
-`references/knowledge-map-120.md`
-
-覆盖：
-
-- 项目定义
-- Story DNA
-- 改编取舍
-- 内心戏影视化
-- POV
-- 人物重构
-- 结构与因果
-- 场景
-- 对白
-- 电影 / 剧集 / 短剧 / 动画
-- Story Bible
-- Knowledge State
-- 原创开发
+- 从零原创电影剧本
+- 从零原创电视剧 / 流媒体剧集
+- 从零原创短剧
+- 动画剧本
+- 故事梗概 → 剧本
+- 普通篇幅小说 / 故事 → 剧本
+- 已有剧本诊断与重写
+- 场景重写
+- 对白与潜台词
 - Script Doctor
-- 回归测试
-
----
-
-# 2. Overseas Short Drama Screenwriter
-
-路径：
-
-`skills/overseas-short-drama-screenwriter/SKILL.md`
-
-这是面向海外短剧 / 微短剧 / AI 漫剧的专项系统。
-
-适合：
-
-- 当前海外短剧市场研究
-- 目标国家本地化
-- Trope / 情绪价值分析
-- 海外短剧原创开发
-- 连载 Story Engine
-- Narrative Momentum
-- 短剧分集
-- 完整短剧剧本
-- 长篇连续性
-- 剧本医生与独立质检
 
 核心流程：
 
-```text
-目标国家
-→ 当前市场研究
-→ 创作模式
-→ Creative Brief
-→ 人物与关系
+~~~text
+Project Brief
+→ Premise / Logline
+→ Story Contract
+→ 人物 / 对抗 / 核心关系
 → Story Engine
-→ Narrative Momentum
-→ 全剧结构
-→ Episode Map
+→ 结构 / Sequence / Episode
+→ Scene Map
+→ 场景任务卡
 → 完整剧本
-→ Continuity
+→ Story Bible
 → Script Doctor
-→ Final
-```
+→ Rewrite
+→ Final Draft
+~~~
+
+核心知识：
+
+- 120 个编剧知识点
+- Story & Structure Engine
+- Character Engine
+- Scene & Dialogue Engine
+- Series & Episode Engine
+- Genre Engine
+- Screenplay Format
+- Script Doctor
+- Rewrite Workflows
+
+中文使用手册：
+
+skills/screenplay-studio/docs/USAGE.zh-CN.md
 
 ---
 
-# 两套 Skill 怎么选
+# 2. Novel To Screenplay Studio —— 长小说 / IP 改编专项
 
-## 用 Novel To Screenplay Studio
+路径：
 
-当任务核心是：
+skills/novel-to-screenplay-studio/SKILL.md
 
-- 小说改编
-- IP 改编
-- 电影
-- 电视剧 / 流媒体
-- 动画
-- 通用原创剧本
-- 通用剧本诊断
+这套 Skill 不再作为普通“写剧本”的默认入口。
 
-## 用 Overseas Short Drama Screenwriter
+它主要负责：
 
-当任务核心是：
+- 长篇小说 / 网文 / IP 全量读取
+- 多卷 / 多文件素材索引
+- Source Index
+- Story DNA 提取
+- Adaptation Matrix
+- 人物 / 支线压缩
+- POV 与时间线重排
+- 内心戏影视化
+- Chapter Function Map
+- 长篇 Story Bible
+- 大体量改编风险控制
+- Writer's Room 改编审稿
 
-- 海外短剧市场
+当小说体量很大时：
+
+~~~text
+novel-to-screenplay-studio
+负责“把原作整理成可改编的结构事实”
+↓
+screenplay-studio
+负责“把这些事实真正写成戏”
+~~~
+
+---
+
+# 3. Overseas Short Drama Screenwriter —— 海外短剧专项
+
+路径：
+
+skills/overseas-short-drama-screenwriter/SKILL.md
+
+适用于：
+
+- 当前海外短剧市场研究
 - 目标国家本地化
-- 当前热门题材
-- 竖屏短剧商业创作
-- 海外短剧发行逻辑
+- 海外平台与受众
+- Trope / 情绪价值分析
+- 竖屏商业短剧
+- Narrative Momentum
+- 连载 Story Engine
+- 海外短剧分集
+- 海外短剧剧本医生
 
-如果是：
-
-> “把一部小说改成海外短剧”
-
-推荐先用：
-
-`novel-to-screenplay-studio`
-
-完成改编核心、人物压缩和影视结构，
-
-再使用：
-
-`overseas-short-drama-screenwriter`
-
-做目标国家市场、本地化和短剧专项强化。
+明确涉及“当前市场 / 热门 / 榜单 / 目标国家”时，应使用实时资料，而不是只依赖训练知识。
 
 ---
 
-# 使用示例
+# 三套 Skill 怎么选
 
-### 小说 → 剧集
+## 用户说“写剧本 / 编剧 / 原创电影 / 原创剧集 / 写短剧”
 
-> 把这部长篇小说改成 8 集流媒体剧。先读取全部素材，建立 Story DNA 和改编决策，不要按章节一章一集，然后写完整剧本。
+优先：
 
-### 小说 → 短剧
+screenplay-studio
 
-> 把这部网文改成 60 集短剧。保留主角、核心关系和结局，可以合并角色和支线。每集必须来自完整因果，不要机械反转。
+## 用户给的是超长小说 / 多卷 IP / 百万字网文
 
-### 直接原创电影
+先：
 
-> 我只有一个概念：一个失忆律师发现自己曾替真正的凶手赢下无罪判决。直接开发成完整悬疑电影剧本。
+novel-to-screenplay-studio
 
-### 直接原创剧集
+完成原作整理与改编设计后，再回：
 
-> 根据这个世界观设计一季 10 集剧集，从人物、Season Engine、Episode Map 到完整剧本。
+screenplay-studio
 
-### 剧本医生
+写正式剧本。
 
-> 读取这版剧本，先找根问题。不要先改台词，按 Premise、主角主动性、因果、结构、场景、信息、对白、连续性的顺序诊断。
+## 用户明确要海外短剧市场、本地化、竖屏商业策略
+
+加载：
+
+overseas-short-drama-screenwriter
+
+如果同时是小说改海外短剧：
+
+~~~text
+novel-to-screenplay-studio
+→ screenplay-studio
+→ overseas-short-drama-screenwriter
+~~~
+
+实际执行时只加载当前阶段需要的模块，不要一次性倾倒全部规则。
+
+---
+
+# Screenplay Studio 快速入口
+
+- 主 Skill：skills/screenplay-studio/SKILL.md
+- 120 知识地图：skills/screenplay-studio/references/knowledge-map-120.md
+- 故事与结构：skills/screenplay-studio/references/story-structure-engine.md
+- 人物：skills/screenplay-studio/references/character-engine.md
+- 场景与对白：skills/screenplay-studio/references/scene-dialogue-engine.md
+- 剧集系统：skills/screenplay-studio/references/series-engine.md
+- 类型：skills/screenplay-studio/references/genre-engine.md
+- 剧本格式：skills/screenplay-studio/references/screenplay-format.md
+- 剧本医生：skills/screenplay-studio/references/script-doctor.md
+- 原创工作流：skills/screenplay-studio/workflows/original-screenplay.md
+- 故事转剧本：skills/screenplay-studio/workflows/story-to-screenplay.md
+- 已有剧本重写：skills/screenplay-studio/workflows/rewrite-existing-script.md
+- 中文使用手册：skills/screenplay-studio/docs/USAGE.zh-CN.md
 
 ---
 
 # 共同边界
 
-两套 Skill 都默认：
+三套 Skill 默认：
 
 - 简体中文输出
-- 用户要求完整剧本时必须进入完整场景和对白
+- 用户要求完整剧本时必须进入完整场景与对白
 - 不用漂亮台词掩盖结构问题
-- 长项目维护 Story Bible / Continuity
-- 不把结构模板当成唯一真理
+- 长项目维护 Story Bible / Continuity / Knowledge State
+- 不把结构模板当唯一真理
 - 默认止于剧本
 - 不自动混入分镜、镜头、焦段、生图或视频模型提示词
