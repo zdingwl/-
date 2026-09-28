@@ -39,6 +39,14 @@
 
 `workflows/novel-adaptation.md`
 
+长篇 / 百万字小说改编：
+
+`workflows/long-novel-adaptation.md`
+
+项目初始化：
+
+`workflows/project-initialization.md`
+
 原创剧本：
 
 `workflows/original-screenplay.md`
@@ -74,17 +82,26 @@
 - 小说改编示例：`examples/Example_Adaptation_Project.md`
 - 原创剧本示例：`examples/Example_Original_Project.md`
 - 版本记录：`CHANGELOG.md`
-- v2.0.0 发布说明：`RELEASE_NOTES_v2.0.0.md`
+- v2.1.0 发布说明：`RELEASE_NOTES_v2.1.0.md`
+- 项目模板索引：`templates/README.md`
+- 百万字改编示例：`examples/Example_Long_Novel_Workspace.md`
 
 ## 长篇项目
 
 长小说、多文件和多集项目默认采用：
 
 ```text
-Source Index
-→ 分块读取
-→ Story Bible
-→ Adaptation / Story Design
+项目初始化
+→ Source Index
+→ 全量目录扫描
+→ 分块功能读取
+→ 全局合并
+→ 关键段二次深读
+→ Story DNA
+→ Adaptation Risk
+→ Chapter Function Map
+→ Sequence / Episode
+→ Scene
 → 正式写作
 → Handoff
 ```
