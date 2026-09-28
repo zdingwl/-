@@ -57,7 +57,25 @@ review_snapshot:
 
 ---
 
-# Phase 3：Adaptation Integrity Review
+# Phase 3：Genre Review
+
+读取：
+
+- Genre Contract
+- Story Bible
+- 对应 Genre Profile
+- 当前 Draft
+
+检查：
+
+- 类型核心承诺是否持续
+- 阶段回报是否缺失或重复
+- 是否出现无意识 Genre Drift
+- 高潮与结局是否回应类型期待
+
+---
+
+# Phase 4：Adaptation Integrity Review
 
 仅 Adaptation Mode。
 
@@ -76,7 +94,7 @@ review_snapshot:
 
 ---
 
-# Phase 4：Medium Fit Review
+# Phase 5：Medium Fit Review
 
 检查目标媒介：
 
@@ -96,7 +114,7 @@ review_snapshot:
 
 ---
 
-# Phase 5：Continuity Review
+# Phase 6：Continuity Review
 
 读取所有状态：
 
@@ -112,7 +130,7 @@ review_snapshot:
 
 ---
 
-# Phase 6：Dialogue Review
+# Phase 7：Dialogue Review
 
 只在上游无未解决 P0 后执行完整 Pass。
 
@@ -127,7 +145,7 @@ review_snapshot:
 
 ---
 
-# Phase 7：Conflict Board
+# Phase 8：Conflict Board
 
 汇总所有 Review Issues。
 
@@ -139,7 +157,7 @@ review_snapshot:
 
 ---
 
-# Phase 8：Executive Review
+# Phase 9：Executive Review
 
 Lead Writer 做最终裁决。
 
@@ -154,7 +172,7 @@ Lead Writer 做最终裁决。
 
 ---
 
-# Phase 9：Rewrite
+# Phase 10：Rewrite
 
 进入：
 
@@ -164,7 +182,7 @@ Lead Writer 做最终裁决。
 
 ---
 
-# Phase 10：验收
+# Phase 11：验收
 
 重写后：
 
