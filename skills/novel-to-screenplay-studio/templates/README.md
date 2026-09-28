@@ -55,3 +55,18 @@ Knowledge State
 ```
 
 模板是状态容器，不要求把所有字段展示给用户。
+
+
+## Writer's Room 审稿
+
+- `Review_Issue_Template.md`
+- `Review_Conflict_Template.md`
+- `Structure_Review_Template.md`
+- `Character_Review_Template.md`
+- `Adaptation_Integrity_Review_Template.md`
+- `Medium_Fit_Review_Template.md`
+- `Continuity_Review_Template.md`
+- `Dialogue_Review_Template.md`
+- `Executive_Review_Template.md`
+
+Reviewer 模板用于“只读审稿”；正式改稿统一进入 `workflows/rewrite-orchestration.md`。
