@@ -51,6 +51,14 @@
 
 `workflows/original-screenplay.md`
 
+Writer's Room 审稿：
+
+`workflows/writers-room-review.md`
+
+统一重写：
+
+`workflows/rewrite-orchestration.md`
+
 ## 使用示例
 
 - “把我这部长篇小说改成 8 集流媒体剧，每集约 45 分钟。”
@@ -82,7 +90,7 @@
 - 小说改编示例：`examples/Example_Adaptation_Project.md`
 - 原创剧本示例：`examples/Example_Original_Project.md`
 - 版本记录：`CHANGELOG.md`
-- v2.1.0 发布说明：`RELEASE_NOTES_v2.1.0.md`
+- v2.2.0 发布说明：`RELEASE_NOTES_v2.2.0.md`
 - 项目模板索引：`templates/README.md`
 - 百万字改编示例：`examples/Example_Long_Novel_Workspace.md`
 
@@ -109,3 +117,21 @@
 分块读取不会把每个文件当成独立故事；全局人物、时间线、秘密和伏笔持续汇总。
 
 默认连续推进。除非缺失信息会改变故事根本方向，否则不会在每个阶段反复要求确认。
+
+
+## Writer's Room
+
+重要阶段稿和完整 First Draft 可进入：
+
+```text
+Structure
+→ Character
+→ Adaptation Integrity（如适用）
+→ Medium Fit
+→ Continuity
+→ Dialogue
+→ Executive Review
+→ Unified Rewrite
+```
+
+多个 Reviewer 不各自直接重写正文；由 Lead Writer 根据 Executive Review 统一执行。
