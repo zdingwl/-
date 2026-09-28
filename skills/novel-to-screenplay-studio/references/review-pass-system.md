@@ -66,6 +66,20 @@
 
 - 重新设计全剧结构，除非人物问题直接暴露结构根因
 
+## Genre Review
+
+检查：
+
+- Primary Genre 承诺是否持续
+- Genre Payoff 是否兑现
+- 是否发生无意识 Genre Drift
+- 高潮是否属于该类型
+- 次类型是否吞掉主类型
+
+不负责：
+
+- 用类型套路强行重写人物与因果
+
 ## Adaptation Integrity Review
 
 仅改编项目。
@@ -223,6 +237,7 @@ Reviewer 可以提出：
 ```text
 Structure
 → Character
+→ Genre
 → Adaptation Integrity（适用）
 → Medium Fit
 → Continuity
