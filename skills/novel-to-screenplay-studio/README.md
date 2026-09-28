@@ -59,6 +59,14 @@ Writer's Room 审稿：
 
 `workflows/rewrite-orchestration.md`
 
+Genre Engine：
+
+`references/genre-engine.md`
+
+类型模块：
+
+`references/genres/README.md`
+
 ## 使用示例
 
 - “把我这部长篇小说改成 8 集流媒体剧，每集约 45 分钟。”
@@ -90,7 +98,7 @@ Writer's Room 审稿：
 - 小说改编示例：`examples/Example_Adaptation_Project.md`
 - 原创剧本示例：`examples/Example_Original_Project.md`
 - 版本记录：`CHANGELOG.md`
-- v2.2.0 发布说明：`RELEASE_NOTES_v2.2.0.md`
+- v2.3.0 发布说明：`RELEASE_NOTES_v2.3.0.md`
 - 项目模板索引：`templates/README.md`
 - 百万字改编示例：`examples/Example_Long_Novel_Workspace.md`
 
@@ -135,3 +143,22 @@ Structure
 ```
 
 多个 Reviewer 不各自直接重写正文；由 Lead Writer 根据 Executive Review 统一执行。
+
+
+## Genre Engine
+
+当前支持：
+
+```text
+Romance
+Mystery
+Thriller / Horror
+Comedy
+Crime / Legal
+Family / Emotional Drama
+Fantasy / Sci-Fi
+Revenge / High-satisfaction
+Action / Adventure
+```
+
+默认只选择 Primary Genre 和必要 Secondary Genre，不把所有类型规则混在一起。
