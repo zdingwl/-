@@ -55,6 +55,7 @@ skills/
 - 项目模板：`skills/novel-to-screenplay-studio/templates/README.md`
 - 长篇小说工作流：`skills/novel-to-screenplay-studio/workflows/long-novel-adaptation.md`
 - Writer's Room 审稿：`skills/novel-to-screenplay-studio/workflows/writers-room-review.md`
+- Genre Engine：`skills/novel-to-screenplay-studio/references/genre-engine.md`
 - 中文使用手册：`skills/novel-to-screenplay-studio/docs/USAGE.zh-CN.md`
 - 小说改编示例：`skills/novel-to-screenplay-studio/examples/Example_Adaptation_Project.md`
 - 原创剧本示例：`skills/novel-to-screenplay-studio/examples/Example_Original_Project.md`
