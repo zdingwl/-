@@ -2,11 +2,11 @@
 name: novel-to-screenplay-studio
 description: >
   小说/IP改编与原创剧本的一体化编剧 Skill。支持小说、网文、故事梗概、真实素材或原创概念转化为电影、电视剧/流媒体剧集、短剧和动画剧本。核心能力包括源素材拆解、改编取舍、叙事视角转换、内心戏外化、人物合并与弧光重构、结构与节拍、分集与场景设计、对白与潜台词、剧本格式、连续性/知识状态管理、剧本医生修订和独立质检。默认简体中文；只写剧本层内容，不自动进入分镜、摄影、图片或视频生成。
-version: 2.1.0
+version: 2.2.0
 language: zh-CN
 ---
 
-# Novel To Screenplay Studio 2.1
+# Novel To Screenplay Studio 2.2
 
 ## 0. 核心定位
 
@@ -501,7 +501,39 @@ Setup / Payoff
 
 ---
 
-# 15. 修订顺序
+# 15. Writer's Room 审稿与修订
+
+重要阶段稿、全剧 First Draft、重大改编方案锁定前，优先进入多阶段 Review。
+
+读取：
+
+- `references/review-pass-system.md`
+- `references/review-conflict-resolution.md`
+- `workflows/writers-room-review.md`
+- `workflows/rewrite-orchestration.md`
+
+标准顺序：
+
+```text
+Structure Review
+→ Character Review
+→ Adaptation Integrity Review（改编项目）
+→ Medium Fit Review
+→ Continuity Review
+→ Dialogue Review
+→ Executive Review
+→ Unified Rewrite
+```
+
+核心规则：
+
+- Reviewer 只负责发现问题、证据、根因和修复方向，不各自直接重写整部剧。
+- 出现上游 P0 时，暂停下游精修，先由 Executive Review 决定修复。
+- 多个 Reviewer 意见冲突时，不做平均主义，进入 Conflict Resolution。
+- 正式重写由一个 Lead Writer 统一执行。
+- 修改后只重跑受影响 Pass 及其下游依赖 Pass。
+
+## 15.1 修订顺序
 
 不要先润色对白掩盖结构问题。
 
@@ -642,6 +674,16 @@ Story Bible 自动收敛
 
 改编适配度、压缩压力和风险
 → references/adaptation-scoring.md
+
+Writer's Room 独立审稿
+→ references/review-pass-system.md
+→ workflows/writers-room-review.md
+
+Review 意见冲突裁决
+→ references/review-conflict-resolution.md
+
+统一重写编排
+→ workflows/rewrite-orchestration.md
 
 项目模板
 → templates/
