@@ -1,5 +1,28 @@
 # Changelog
 
+## 2.1.0 — 2026-09-28
+
+### Added
+
+- 14 个项目执行模板：Project State、Story Bible、Source Index、Source Analysis、Adaptation Bible、Character Bible、Relationship Map、Timeline、Secret Ledger、Knowledge State、Setup/Payoff、Episode Map、Scene List、Script Draft、Revision Report 等
+- 长篇 / 百万字小说专用改编工作流
+- Source Index 三层读取策略
+- Chapter Function Map
+- 章节 / 卷 → Sequence → Episode / Act 映射规则
+- 改编适配度与压缩压力评分
+- Adaptation Risk Report
+- 人物关系网络事件抽取
+- Story Bible 自动收敛工作流
+- 项目自动初始化工作流
+- 百万字网文项目工作空间示例
+
+### Changed
+
+- 长篇改编现在必须先完成全局索引与关键段二次深读，再锁 Story DNA
+- 不再允许按小说章节编号机械映射剧集
+- 项目状态从“聊天记忆”升级为显式模板与正典文件
+- 主 Skill 新增长篇改编自动路由
+
 ## 2.0.0 — 2026-09-28
 
 ### Added
