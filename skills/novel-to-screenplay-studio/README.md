@@ -66,3 +66,29 @@
 只有用户明确要求时生成英文或其他语言。
 
 剧本阶段默认不包含分镜、镜头、焦段、运镜、生图或视频模型提示词。
+
+
+## 快速入口
+
+- 中文使用手册：`docs/USAGE.zh-CN.md`
+- 小说改编示例：`examples/Example_Adaptation_Project.md`
+- 原创剧本示例：`examples/Example_Original_Project.md`
+- 版本记录：`CHANGELOG.md`
+- v2.0.0 发布说明：`RELEASE_NOTES_v2.0.0.md`
+
+## 长篇项目
+
+长小说、多文件和多集项目默认采用：
+
+```text
+Source Index
+→ 分块读取
+→ Story Bible
+→ Adaptation / Story Design
+→ 正式写作
+→ Handoff
+```
+
+分块读取不会把每个文件当成独立故事；全局人物、时间线、秘密和伏笔持续汇总。
+
+默认连续推进。除非缺失信息会改变故事根本方向，否则不会在每个阶段反复要求确认。
