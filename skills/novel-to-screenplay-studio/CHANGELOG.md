@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.3.0 — 2026-09-28
+
+### Added
+
+- Genre Engine 主类型 / 次类型路由
+- Romance 类型模块
+- Mystery 类型模块
+- Thriller / Horror 类型模块
+- Comedy 类型模块
+- Crime / Legal 类型模块
+- Family / Emotional Drama 类型模块
+- Fantasy / Sci-Fi 类型模块
+- Revenge / High-satisfaction 类型模块
+- Action / Adventure 类型模块
+- Genre Contract
+- Genre Payoff Ledger
+- Genre Drift 检查
+- Genre Review 模板
+- Genre Engine 专项回归案例
+- Writer's Room Genre Review Pass
+
+### Changed
+
+- 类型不再只是标签，而是观众承诺、Story Engine、阶段回报和高潮要求
+- 主 Skill 只加载 Primary Genre 与必要 Secondary Genre，避免多类型规则互相污染
+- Writer's Room 在 Character Review 后增加 Genre Review
+- 混合类型不再把所有类型模块叠加，明确主类型控制核心体验
+
 ## 2.2.0 — 2026-09-28
 
 ### Added
