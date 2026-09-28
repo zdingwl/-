@@ -1,24 +1,62 @@
 # Changelog
 
+## 2.0.0 — 2026-09-28
+
+重大升级：把 screenplay-studio 收敛为唯一通用编剧主入口。
+
+### Unified Routing
+
+- 原创、小说/IP改编、已有剧本重写、单场写作统一进入 screenplay-studio。
+- 新增 source_scale 自动判断。
+- 长篇/多卷/多文件小说不再要求用户手动切换 Skill。
+
+### Long-form Adaptation
+
+新增：
+
+- references/source-ingestion.md
+- references/adaptation-engine.md
+- workflows/long-novel-to-screenplay.md
+- Source Index
+- Character Knowledge
+- Setup / Payoff Ledger
+- Reveal Ledger
+- Adaptation Matrix
+- 长篇全局收敛门槛
+
+### Knowledge Level 2
+
+新增 120 个知识点逐条深度解析层：
+
+- 定义
+- 作用机制
+- 诊断问题
+- 常见失败
+- 修复动作
+
+采用按问题加载，而不是一次加载全部知识。
+
+### Workflow
+
+强化：
+
+- Project State
+- Story Bible
+- LOCKED / ASSUMED / PROPOSED / REJECTED
+- Scene Contract
+- Output Contract
+- Root-cause Script Doctor
+- 用户要求“直接做完”时连续推进
+
+### Skill Architecture
+
+依据 OpenAI Skills 官方结构原则：
+
+- SKILL.md 保持主路由与执行规则
+- references/ 承载深层知识
+- workflows/ 承载专项流程
+- templates/ 承载状态与项目模板
+
 ## 1.0.0 — 2026-09-28
 
 首次建立 screenplay-studio 通用编剧主 Skill。
-
-新增：
-- 原创 / 故事转剧本 / 已有剧本重写三入口
-- 电影 / 剧集 / 短剧 / 动画媒介路由
-- Story & Structure Engine
-- Character Engine
-- Scene & Dialogue Engine
-- Series & Episode Engine
-- Genre Engine
-- Script Doctor
-- 专业剧本格式边界
-- 120 个编剧核心知识点
-- Project / Character / Story / Episode / Scene / Revision 模板
-- 固定回归测试
-
-架构边界：
-- novel-to-screenplay-studio 保留为大体量小说/IP改编专项
-- overseas-short-drama-screenwriter 保留为海外短剧专项
-- screenplay-studio 作为真正的通用编剧主系统

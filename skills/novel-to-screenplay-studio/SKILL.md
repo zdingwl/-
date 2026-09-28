@@ -6,7 +6,7 @@ version: 2.3.0
 language: zh-CN
 ---
 
-# Novel To Screenplay Studio 2.3
+# Novel To Screenplay Studio 2.3\n\n## 0A. 与 screenplay-studio 2.0 的关系\n\n本 Skill 现在主要作为长篇改编工程的兼容/专项实现保留。\n\n常规项目直接使用 `screenplay-studio`；只有明确需要单独进行超长源素材索引、Adaptation Bible、专项改编审稿，或用户明确点名本 Skill 时再使用这里。\n\n不要与 `screenplay-studio` 同时作为两个并列主入口。
 
 ## 0. 核心定位
 

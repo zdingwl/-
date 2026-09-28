@@ -20,4 +20,4 @@ jobs:
 
       - name: Skill structure validation
         run: |
-          python skills/overseas-short-drama-screenwriter/scripts/validate_skill.py
+          python skills/screenplay-studio/scripts/validate_skill.py\n          python skills/overseas-short-drama-screenwriter/scripts/validate_skill.py

@@ -1,34 +1,77 @@
 # Story To Screenplay Workflow
 
-## 定位
+适用于已有故事、小说、梗概、真实素材或 IP。
 
-适用于已有故事、小说片段、梗概、真实素材。
+## 1. 先判断素材规模
 
-## 流程
+### short / medium
+
+直接：
 
 ~~~text
 读取素材
-→ 提取人物 / 因果 / 秘密 / 情绪高点
-→ 标记必须保留
-→ KEEP / TRANSFORM / MERGE / MOVE / CUT / INVENT
-→ 内心戏外化
-→ 重建影视 Story Contract
-→ 选择媒介
-→ 重建结构
+→ Story DNA
+→ Adaptation Contract
+→ Adaptation Matrix
+→ 影视因果
+→ 结构
 → Scene Map
 → Draft
-→ Script Doctor
 ~~~
 
-## 禁止
+读取：
 
-- 逐段把小说改成对白
-- 一章等于一场
-- 一章等于一集
-- 把心理描写全部变旁白
-- 为了忠实保留重复功能人物
-- 素材尚未读全时擅自锁死结局
+- references/adaptation-input.md
+- references/adaptation-engine.md
 
-## 大体量路由
+### long / multi_file
 
-多卷、百万字、复杂多 POV 时，先交给 novel-to-screenplay-studio 做源素材索引，再回本流程写剧本。
+不要继续本文件的简化流程。
+
+切换到：
+
+- references/source-ingestion.md
+- workflows/long-novel-to-screenplay.md
+
+仍然属于 screenplay-studio，不要求用户切换 Skill。
+
+## 2. 改编目标
+
+禁止把“忠实”理解为：
+
+- 逐章搬运
+- 原文压缩
+- 叙述改对白
+- 大量旁白
+
+优先保留：
+
+- 原作功能
+- 核心人物关系
+- 情绪承诺
+- 主线因果
+- 标志性元素
+
+## 3. 改编决策
+
+重要元素必须进入：
+
+- KEEP
+- TRANSFORM
+- MERGE
+- MOVE
+- CUT
+- INVENT
+
+## 4. 正式写作
+
+用户要求“改成剧本”时，最终必须进入：
+
+- Scene Heading
+- 可见动作
+- 人物行为
+- 完整对白
+- 场景转折
+- 后果
+
+不要把改编分析当最终交付。

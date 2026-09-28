@@ -1,6 +1,6 @@
 # Screenplay Knowledge Map — 120 个核心知识点
 
-这不是小说知识地图，而是“如何把故事真正写成戏”的编剧知识地图。
+这不是小说知识地图，而是“如何把故事真正写成戏”的编剧知识地图。\n\n本文件是 Level 1 快速索引。需要根因级诊断、复杂改编或深度重写时，读取 `knowledge-map-level2.md`，再按问题加载 `knowledge-level2/` 中对应模块。
 
 ## A. Premise 与故事发动机（1–10）
 

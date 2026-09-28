@@ -1,126 +1,281 @@
 ---
 name: screenplay-studio
 description: >
-  通用影视编剧主 Skill。以剧本创作为中心，而不是以小说处理为中心。支持从零原创、故事/小说/梗概转剧本，以及已有剧本的诊断和重写；覆盖电影、电视剧/流媒体剧集、短剧和动画。核心能力包括故事发动机、人物与关系、结构与节拍、分集、场景设计、视觉动作、对白与潜台词、剧本格式、连续性、Script Doctor 和多轮重写。默认简体中文；最终目标是进入真正的场景正文与完整对白。小说改编仅作为输入适配模块。
-version: 1.0.0
-language: zh-CN
+  统一影视编剧主 Skill。用户要从零原创电影、电视剧/流媒体剧集、短剧、动画，或把小说/网文/故事/IP改成剧本，或诊断重写已有剧本时使用。普通素材与超长/多文件小说都在本 Skill 内自动路由；长篇先建立 Source Index、Story DNA、Adaptation Matrix、Story Bible 与 Knowledge State，再进入影视结构和剧本正文。最终默认交付可见、可听、可演的场景、动作与完整对白，而不是停在分析、大纲或小说式叙述。
 ---
 
-# Screenplay Studio 1.0
+# Screenplay Studio 2.0
 
-## 0. 核心定位
+## 0. 核心使命
 
-这是“编剧主系统”。
+这是一个“真正把故事写成戏”的主 Skill。
 
-最终必须解决的不是“故事讲清楚了吗”，而是：
+它必须同时处理两类核心任务：
 
-- 这是不是一个能被演出来的戏？
-- 人物是否在场景里主动争取东西？
-- 冲突是否来自目标与阻力？
-- 场景前后是否发生真实变化？
-- 对白是否具有行动、策略和潜台词？
-- 结构是否持续制造期待、压力、选择与后果？
-- 最终是否真正写成剧本正文？
+1. 从已有小说、网文、故事、IP、真实素材中重建影视剧本。
+2. 从概念、人物、类型、世界观或一句话创意直接开发原创剧本。
 
-小说、故事、新闻、真实经历、设定、人物卡都只是输入材料。
+也支持：
 
-# 1. 三个主入口
+- 已有剧本诊断与重写
+- 单场戏重写
+- 对白与潜台词
+- 电影、剧集、短剧、动画
+- 长篇/多卷/多文件项目的连续性管理
+
+用户只需要提出创作目标，不需要自己判断该加载哪套编剧 Skill。
+
+---
+
+# 1. 自动任务路由
+
+先在内部建立：
 
 ~~~yaml
 task_router:
-  mode: original | story_to_screenplay | rewrite_existing_script
+  mode: original | adaptation | rewrite | scene_only | development
+  source_scale: none | short | medium | long | multi_file
   medium: feature | episodic_series | short_drama | animation
   genre:
-  scale:
+  target_scope:
+  target_length:
+  fidelity: high | functional | free
   current_stage:
   user_goal:
   locked_requirements:
+  supplied_material:
+  missing_but_nonblocking:
   assumptions:
 ~~~
 
 ## 1.1 Original
 
-从概念、人物、类型、主题、世界观或一句话创意开始。
+用户没有必须忠实的源故事，或明确要求从零写。
 
 读取：
+
 - references/story-structure-engine.md
 - references/character-engine.md
 - references/scene-dialogue-engine.md
 - workflows/original-screenplay.md
+- 对应媒介 workflow
 
-## 1.2 Story To Screenplay
+## 1.2 Adaptation
 
-用户提供小说、故事、梗概、真实素材或其他叙事文本时使用。
+用户提供小说、网文、故事、IP、真实经历或其他叙事素材。
 
-先把素材转成“戏剧功能”，再进入正常编剧流程。
+短/中等素材：
 
-读取：
 - references/adaptation-input.md
+- references/adaptation-engine.md
 - workflows/story-to-screenplay.md
 
-长小说、百万字 IP 或复杂多卷项目可以先调用 novel-to-screenplay-studio；完成源素材整理后回到本 Skill 写剧本。
+长篇、多卷、多文件、数十万字/百万字：
 
-## 1.3 Rewrite Existing Script
+- references/source-ingestion.md
+- references/adaptation-engine.md
+- workflows/long-novel-to-screenplay.md
 
-用户已经有剧本，需要诊断、改写、压缩、扩展、调整人物、结构、对白或节奏时使用。
+长篇改编仍由本 Skill 完成，不要求用户切换到另一个 Skill。
+
+## 1.3 Rewrite
+
+已有剧本需要诊断或重写。
 
 读取：
+
 - references/script-doctor.md
 - workflows/rewrite-existing-script.md
+- 必要时加载 Level 2 对应知识模块
 
-# 2. 最高优先级原则
+## 1.4 Scene Only
 
-1. 剧本优先：不要把任务做成小说分析、世界观百科或纯故事大纲。
-2. 用户要求“写剧本”时，最终必须进入场景正文与完整对白。
-3. 场景必须有目标、阻力、策略、反制、转折、状态变化。
-4. 人物通过高代价选择定义和证明人物弧。
-5. 冲突来自立场、利益和选择，不靠人物降智。
-6. 因果优先：因为 → 所以 → 但是 → 因此。
-7. 只写可见、可听、可演内容；心理必须外化。
-8. 对白是一种行动：角色说话是为了改变对方或局面。
-9. 结构服务压力和选择；模板用于诊断，不用于机械填格。
-10. 信息释放是戏剧资源：观众知道、人物知道、误信什么必须管理。
-11. 长项目维护 Story Bible，不依赖模糊记忆。
-12. 默认连续推进；非根本性缺失用 ASSUMED 标记后继续。
-13. 先修上游再修下游；Story Engine 坏了不要先润色对白。
-14. 剧本与分镜分开；无明确要求不写景别、焦段、运镜与生成提示词。
-15. 默认简体中文。
+用户只要求写或改一场戏时，不重新输出整部项目开发文档。
 
-# 3. 编剧总流程
+先读取用户给出的必要前情与当前 Story Bible 状态，然后直接建立 Scene Contract 并写正文。
+
+---
+
+# 2. 渐进式加载，而不是规则倾倒
+
+主 SKILL.md 负责：
+
+- 路由
+- 阶段控制
+- 状态管理
+- 输出标准
+- 质量门槛
+
+深层知识只在当前任务需要时读取。
+
+## Level 1
+
+快速工作知识：
+
+- references/knowledge-map-120.md
+- references/story-structure-engine.md
+- references/character-engine.md
+- references/scene-dialogue-engine.md
+- references/series-engine.md
+- references/genre-engine.md
+- references/screenplay-format.md
+- references/script-doctor.md
+
+## Level 2
+
+深度诊断、复杂项目、反复修订时读取：
+
+- references/knowledge-map-level2.md
+- references/knowledge-level2/
+
+不要无差别加载 120 个深层条目。
+
+---
+
+# 3. 项目状态
+
+中长项目必须维护内部 Project State。
+
+~~~yaml
+project_state:
+  project_contract:
+  canon:
+  assumptions:
+  proposed:
+  rejected:
+  story_contract:
+  character_states:
+  relationship_states:
+  timeline:
+  locations:
+  objects_resources_evidence:
+  secrets:
+  audience_knowledge:
+  character_knowledge:
+  setups_payoffs:
+  adaptation_ledger:
+  unresolved_questions:
+  current_unit:
+  completed_units:
+  rewrite_history:
+~~~
+
+状态标签：
+
+- LOCKED：用户或文本已确认的正典
+- ASSUMED：为了推进而临时补全
+- PROPOSED：候选方案
+- REJECTED：已否决，不得重新混入
+
+不要用“模型记得大概”替代 Story Bible。
+
+---
+
+# 4. 原创剧本总流程
 
 ~~~text
-任务路由
-→ Project Brief
+需求解析
+→ Project Contract
 → Premise / Logline
-→ 类型承诺与观众承诺
-→ 核心戏剧问题
-→ 主角 Want / Need / Misbelief
-→ 对抗力量与 Stakes
-→ 核心关系
+→ Audience Promise / Genre Contract
+→ Dramatic Question / Theme Question
+→ Protagonist Want / Need / Misbelief
+→ Opposing Force / Stakes / Core Relationship
 → Story Engine
 → Ending State
-→ 全局结构
-→ Sequence / Episode / Beat
+→ Global Structure
+→ Sequence / Episode Design
 → Scene Map
-→ 场景任务卡
-→ 剧本正文
-→ Story Bible 更新
+→ Scene Contracts
+→ Draft
+→ Story Bible Update
 → Script Doctor
 → Rewrite Passes
 → Final Draft
 ~~~
 
-故事素材转剧本时，在 Story Engine 前增加：
+当用户说“直接写”，内部仍可完成必要规划，但最终交付不能停在规划层。
+
+---
+
+# 5. 小说 / IP 改编总流程
+
+改编不是把原文压短，也不是把叙述改成对白。
+
+核心流程：
 
 ~~~text
-素材读取
-→ 提取人物 / 事件 / 秘密 / 情绪价值
-→ KEEP / TRANSFORM / MERGE / MOVE / CUT / INVENT
-→ 内心戏外化
-→ 重建影视因果链
+Source Ingestion
+→ Source Index
+→ Canon / Timeline / Character Knowledge
+→ Story DNA
+→ Adaptation Contract
+→ Adaptation Matrix
+→ Character / Subplot Compression
+→ POV / Reveal / Timeline Redesign
+→ Interior Externalization
+→ Screen Causality Reconstruction
+→ Medium Structure
+→ Scene Map
+→ Draft
+→ Adaptation Integrity Review
+→ Rewrite
 ~~~
 
-# 4. Story Contract
+## 5.1 长篇读取规则
+
+长篇、多卷、多文件必须先读到足以确认：
+
+- 主线因果
+- 主要人物功能
+- 结局
+- 核心秘密与揭露顺序
+- 关键 Setup / Payoff
+- 后文是否重解释前文
+- 核心情绪承诺
+
+在这些条件未满足前，不要把前几章当整部作品改编。
+
+## 5.2 改编决策
+
+重要源元素使用：
+
+- KEEP
+- TRANSFORM
+- MERGE
+- MOVE
+- CUT
+- INVENT
+
+每个决定都必须回答：
+
+- 原作功能是什么？
+- 情绪价值是什么？
+- 删除或移动会破坏什么？
+- 新影视版本承担什么功能？
+- 是否改变核心 IP 识别度？
+
+## 5.3 内心戏外化优先级
+
+优先转换成：
+
+1. 选择
+2. 行为
+3. 关系策略
+4. 道具
+5. 空间关系
+6. 信息控制
+7. 对照动作
+8. 可听声音
+9. 必要且有形式价值的旁白
+
+禁止把大量心理描写简单搬成旁白。
+
+---
+
+# 6. Story Contract
+
+正式结构开发前尽量锁定：
 
 ~~~yaml
 story_contract:
@@ -142,11 +297,14 @@ story_contract:
   audience_promise:
 ~~~
 
-这里无法成立时，先修故事发动机。
+如果 Story Contract 不能成立，先修故事发动机，不要靠漂亮场景或对白掩盖。
 
-# 5. 人物系统
+---
 
-主要人物维护：
+# 7. 人物与关系
+
+主要人物至少维护：
+
 - External Goal
 - Internal Need
 - Misbelief
@@ -161,22 +319,46 @@ story_contract:
 - Ending State
 - Arc Proof
 
-角色不是人物简介。必须能回答：他现在想从谁那里得到什么？为什么得不到？会付什么代价？压力增加后如何改变策略？
+人物不是履历。
 
-# 6. 结构系统
+必须能回答：
 
-允许三幕、四幕、五幕、Sequence、七点、Hero's Journey、Save the Cat 或自定义结构。
+> 他现在想从谁那里得到什么？为什么得不到？他会先用什么策略？失败后如何换策略？他愿意付到什么代价？
+
+关系必须维护：
+
+- 权力
+- 依赖
+- 债务
+- 信任
+- 秘密
+- 亲密风险
+- 资源控制
+- 当前未解决冲突
+
+---
+
+# 8. 结构不是节点填表
+
+允许三幕、四幕、五幕、Sequence、七点、英雄旅程、Save the Cat 或自定义结构。
+
+任何框架都只能用于诊断。
 
 优先检查：
-1. 原有平衡是否被打破？
-2. 主角是否作出不可轻易撤回的选择？
-3. 对抗力量是否适应主角并升级？
-4. 中段是否改变目标、规则、意义、信息或权力？
-5. 低谷是否来自之前选择？
-6. 高潮是否迫使主角用行动回答主题问题？
-7. 结局是否证明人物改变或拒绝改变？
 
-# 7. 场景系统
+1. 原平衡如何被破坏？
+2. 主角何时主动承诺进入主线？
+3. 对手如何根据主角行为升级？
+4. 中段改变了什么：目标、规则、信息、权力还是意义？
+5. 低谷是否来自此前选择？
+6. 高潮是否迫使主角在高代价下做价值选择？
+7. 结局是否用行为证明改变或拒绝改变？
+
+---
+
+# 9. Scene Engine
+
+每场先有内部 Scene Contract：
 
 ~~~yaml
 scene_contract:
@@ -198,81 +380,103 @@ scene_contract:
   why_next_scene:
 ~~~
 
-最低逻辑：
+最小戏剧逻辑：
 
 ~~~text
-目标 → 尝试 → 阻力 → 策略变化 → 反制 → 转折 → 状态变化 → 后果
+目标
+→ 尝试
+→ 阻力
+→ 策略变化
+→ 反制
+→ 转折
+→ 状态变化
+→ 后果
 ~~~
 
-没有状态变化的场景默认视为可疑场景。
+一场戏如果没有信息、关系、权力、目标、风险、认知或资源的有效变化，默认视为可疑场景。
 
-# 8. 对白系统
+---
 
-对白首先是行为。
+# 10. 对白
 
-每句重要台词问：说话者想让对方做什么、相信什么、承认什么、放弃什么、害怕什么？
+对白首先是行动，不是信息搬运。
 
-主要角色维护 Voice Fingerprint：句长、词汇、正式度、直接性、幽默、回避方式、愤怒方式、亲密方式、撒谎方式、职业语言、禁忌话题。
+每句重要台词必须能回答：
 
-警惕：
-- 所有人都像作者
-- 台词替观众总结剧情
-- 情绪用台词直接命名
-- 双方已知信息互相解释
-- 为金句牺牲人物逻辑
+- 说话者想让对方做什么？
+- 想让对方相信什么？
+- 想迫使对方承认什么？
+- 想隐藏什么？
+- 想避免什么？
+- 这句话为什么现在说？
 
-# 9. 视觉动作
+主要人物维护 Voice Fingerprint：
 
-剧本动作不是小说描写。
+- 句长
+- 词汇
+- 正式度
+- 直接性
+- 幽默
+- 回避方式
+- 愤怒方式
+- 亲密方式
+- 撒谎方式
+- 职业语言
+- 禁忌话题
 
-动作行优先写：谁做了什么、对谁做、什么改变、哪个可见细节暴露状态、哪个行为产生后果。
+优先使用潜台词、打断、回避、改口、沉默、策略变化，而不是让角色互相解释双方已经知道的信息。
 
-心理变化优先外化为：选择、犹豫、停止动作、改变距离、物件处理、撒谎、拒绝、让步、越界。
+---
 
-# 10. 媒介路由
+# 11. 媒介路由
 
-电影：单一强主线、完整人物弧、Sequence 升级、中段重定义、高潮汇合。
+## Feature
 
-剧集：Series Engine、Season Question、Episode Engine、A/B/C 线、关系长期演化、分期兑现。
+重点：
 
-短剧：快速进入具体处境、单集微型戏剧单元、高有效变化密度、明确观看驱动力、兑现后制造新后果。
+- 单一强主线
+- Sequence 级升级
+- 中段重定义
+- 有限时长内完整人物弧
+- 高潮汇合外部目标、关系与主题
 
-动画：人物与戏剧优先，同时考虑世界规则可视化、动作表达、可执行场面规模。
+读取 workflows/feature-film.md。
 
-# 11. 标准剧本元素
+## Episodic Series
 
-默认采用 Master Scene 思路。
+重点：
 
-常见元素：
-- Scene Heading
-- Action
-- Character
-- Dialogue
-- Parenthetical
-- Transition（必要时）
+- Series Engine
+- Season Question
+- Episode Function
+- A/B/C Lines
+- 关系长期演化
+- 每集阶段兑现
+- Story Bible 与 Knowledge State
 
-Submission Draft 默认不写场号、不堆摄影指令。
+读取 workflows/episodic-series.md。
 
-# 12. Story Bible
+## Short Drama
 
-维护：
-- Canon Facts
-- Characters
-- Relationships
-- Character Knowledge
-- Timeline
-- Locations
-- Physical State
-- Objects / Resources / Evidence
-- Secrets
-- World Rules
-- Setup / Payoff
-- Unresolved Questions
-- Rejected Options
+重点：
 
-状态：LOCKED / ASSUMED / PROPOSED / REJECTED。
+- 快速进入具体处境
+- 单集微型戏剧单元
+- 单位时间有效变化密度
+- 小兑现制造新后果
+- 连载驱动力来自未完成问题与关系，而非机械反转
 
-# 13. Script Doctor
+读取 workflows/short-drama.md。
+
+若用户明确要求当前海外市场、目标国家、平台趋势或本地化，再调用对应专项 Skill/实时资料。
+
+## Animation
+
+动画允许更强视觉表达，但仍服从人物、因果、可执行动作与制作规模。
+
+---
+
+# 12. Script Doctor 与重写
 
 诊断顺序：
 
@@ -295,26 +499,70 @@ Premise / Audience Promise
 → Format
 ~~~
 
-禁止先做台词润色来掩盖结构问题。
+修订顺序遵循“上游优先”。
 
-# 14. Rewrite Passes
+不要用对白润色掩盖 Story Engine、Agency 或 Causality 的问题。
 
-1. Premise
-2. Causality
-3. Protagonist Agency
-4. Character / Relationship
-5. Structure
-6. Scene Function
-7. Information / Suspense
-8. Dialogue / Voice
-9. Visual Action
-10. Continuity
-11. Compression
-12. Format / Readability
+---
 
-# 15. 输出原则
+# 13. 剧本正文标准
 
-如果用户说“直接写剧本”，最终输出必须包含：
+默认使用 Master Scene 思路。
+
+正文主要元素：
+
+- Scene Heading
+- Action
+- Character
+- Dialogue
+- Parenthetical（必要时）
+- Transition（必要时）
+
+Submission / Development Draft 默认：
+
+- 不写场号
+- 不堆摄影机指令
+- 不写焦段
+- 不写推拉摇移
+- 不写灯光参数
+- 不混入生图/视频提示词
+
+动作行只写观众可见、可听、可演的信息。
+
+行业格式细节读取 references/screenplay-format.md。
+
+---
+
+# 14. 用户交互原则
+
+1. 用户要求“直接做完”时，不逐阶段索要确认。
+2. 非根本性信息缺失，用 ASSUMED 标记并继续。
+3. 只有缺失会使结果完全改变时才需要澄清。
+4. 不把内部分析流程全部倾倒给用户。
+5. 用户要完整剧本时，最终必须进入场景正文和完整对白。
+6. 用户只要某一场时，不强迫先看完整大纲。
+7. 用户给出锁定要求时，不在后续重写中悄悄改掉。
+8. 长项目每完成一个单元都更新状态，再继续下一个单元。
+
+---
+
+# 15. 输出契约
+
+## 用户要“开发项目”
+
+可交付：
+
+- Project Contract
+- Story Contract
+- Character/Relationship Design
+- Structure / Episode Map
+- Scene Map
+- 风险与待定项
+
+## 用户要“写剧本”
+
+最终交付必须包含：
+
 - 场景标题
 - 可见动作
 - 人物行为
@@ -323,54 +571,105 @@ Premise / Audience Promise
 - 场景转折
 - 后果
 
-内部可以先规划，但不能把规划当最终交付。
+## 用户要“小说改剧本”
 
-# 16. Skill 边界
+默认交付：
 
-普通故事或小说片段：本 Skill 直接用 adaptation-input。
+~~~text
+必要的改编定位
+→ 核心改编决策
+→ 影视版结构
+→ 剧本正文
+~~~
 
-多卷、数十万/百万字、多文件、多 POV、复杂伏笔：先用 novel-to-screenplay-studio 做源素材整理，再回本 Skill 写剧本。
+不要把 Source Index 当最终成品。
 
-明确海外市场、目标国家本地化、竖屏商业短剧与实时趋势：可加载 overseas-short-drama-screenwriter。
+## 用户要“诊断”
 
-# 17. 加载地图
+输出：
 
-- references/knowledge-map-120.md：120 知识点
-- references/story-structure-engine.md：故事发动机 / 结构
-- references/character-engine.md：人物 / 弧光 / 关系
-- references/scene-dialogue-engine.md：场景 / 动作 / 对白
-- references/series-engine.md：剧集 / 分集
-- references/genre-engine.md：类型路由
-- references/screenplay-format.md：标准剧本格式
-- references/adaptation-input.md：故事 / 小说输入
-- references/script-doctor.md：诊断与重写
-- workflows/original-screenplay.md：原创
-- workflows/story-to-screenplay.md：故事转剧本
-- workflows/rewrite-existing-script.md：已有剧本重写
+- 症状
+- 证据
+- 根因
+- 严重度
+- 修复顺序
+- 具体改法
+
+---
+
+# 16. Level 2 知识使用规则
+
+当遇到以下情况时加载对应 Level 2：
+
+- 结构反复修不好
+- 人物看起来“对”但不活
+- 场景没有戏
+- 对白同质化
+- 悬疑/信息释放混乱
+- 长剧集后半段失速
+- 短剧只剩机械反转
+- 改编既不忠实也不好看
+- Script Doctor 需要根因级分析
+
+入口：
+
+- references/knowledge-map-level2.md
+
+Level 2 每个知识点都包含：
+
+- 定义
+- 作用机制
+- 诊断问题
+- 常见失败
+- 修复动作
+
+---
+
+# 17. 禁止性失败模式
+
+禁止：
+
+- 把小说分析当剧本
+- 一章等于一集
+- 用旁白承包内心戏
+- 主角被剧情拖着走
+- 对手只在需要时突然出现
+- 中段重复前段
+- 高潮靠偶然解决
+- 场景只有信息没有争夺
+- 所有人说话像同一个作者
+- 用固定页码/分钟数强制节点
+- 用“每 N 秒反转”替代因果
+- 长项目不维护 Story Bible
+- 用户要求正文却只给大纲
+- 无要求混入分镜、镜头和生成提示词
+
+---
 
 # 18. 完成标准
 
 ~~~text
-□ 这是剧本，不是小说分析或故事梗概
+□ 路由正确：原创 / 改编 / 重写 / 单场
 □ 目标媒介明确
+□ 长篇素材已先完成全局读取与索引
 □ Story Contract 成立
 □ 主角有可执行目标并持续选择
-□ 对抗力量会反制
-□ Stakes 会升级
-□ 因果链成立
+□ 对抗力量会适应和反制
+□ Stakes 具体并升级
+□ 重大剧情有因果
 □ 中段产生实质改变
-□ 高潮由人物选择解决
+□ 高潮来自人物高代价选择
 □ 人物弧有行为证据
-□ 核心关系真实变化
-□ 每场有目标与阻力
-□ 每场存在转折或状态变化
+□ 核心关系发生真实变化
+□ 每场有目标、阻力、策略、转折和后果
 □ 对白具有行动与潜台词
 □ 主要人物声音可区分
 □ 心理已尽量外化
-□ 信息差与秘密状态清楚
+□ 信息差、秘密和知识状态清楚
+□ Setup / Payoff 可追踪
 □ 长项目连续性稳定
-□ 正文只写可见、可听、可演内容
-□ 格式清晰可读
-□ 已经过至少一轮结构性诊断
-□ 没有混入无要求的分镜、摄影或生成提示词
+□ 正文可见、可听、可演
+□ 格式清楚且不过度导演化
+□ 至少完成一轮结构性诊断
+□ 用户要求剧本时已经真正进入剧本正文
 ~~~
