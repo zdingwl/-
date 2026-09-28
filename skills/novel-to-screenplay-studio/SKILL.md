@@ -634,6 +634,12 @@ Story Bible / 人物知识 / 时间线 / 伏笔
 章节 / 卷到影视结构映射
 → references/chapter-to-screen-mapping.md
 
+人物关系网络抽取
+→ references/relationship-extraction.md
+
+Story Bible 自动收敛
+→ workflows/story-bible-generation.md
+
 改编适配度、压缩压力和风险
 → references/adaptation-scoring.md
 
