@@ -1,5 +1,32 @@
 # Changelog
 
+## 2.2.0 — 2026-09-28
+
+### Added
+
+- Writer's Room 多阶段独立审稿体系
+- Structure Review
+- Character Review
+- Adaptation Integrity Review
+- Medium Fit Review
+- Continuity Review
+- Dialogue Review
+- Executive Review
+- Review Issue 统一问题格式
+- Review Conflict 冲突裁决机制
+- Lead Writer 单一主笔重写原则
+- Rewrite Orchestration 统一重写工作流
+- Re-review Matrix：按修改层级重跑依赖审稿
+- Writer's Room 专项回归案例
+
+### Changed
+
+- 审稿不再由一个 Pass 同时检查所有层级
+- Reviewer 默认只读，不直接把建议写成正典
+- 上游 P0 会阻断无意义的下游精修
+- 多 Reviewer 冲突必须经 Executive Review 裁决
+- 正式 Rewrite 改为单一 Lead Writer 统一执行，避免人物与正典漂移
+
 ## 2.1.0 — 2026-09-28
 
 ### Added
