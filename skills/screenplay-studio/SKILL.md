@@ -147,6 +147,13 @@ task_router:
 
 重点：快速处境、微型戏剧单元、有效变化密度、小兑现→新后果。
 
+若同时涉及末世、灾难、生存、重生、预知、系统、囤货、基地建设或长期连载，再读取：
+
+- `references/speculative-survival-serial-engine.md`
+- `references/series-engine.md`
+
+重点额外检查：灾难阶段、现实/虚构边界、重生信息红利与失效、能力隐藏、资源物流、升级成本、成长阻碍、真实损失和跨季钩子。
+
 涉及当前海外市场、目标国家、平台趋势或商业本地化时，再调用相应专项 Skill 或实时资料。
 
 ### Animation
@@ -206,6 +213,12 @@ Level 2 每个知识点包含：
 - Unresolved Questions
 - Current / Completed Units
 - Rewrite History
+- World Phase（灾难 / 生存项目）
+- Future Knowledge / Timeline Divergence（重生 / 预知项目）
+- Resource / Capability Ledger（资源 / 系统项目）
+- Secrecy / Exposure State
+- Opposition Ladder / Faction Interest
+- Open Hooks / Future Payoffs / Season Residue
 
 读取：
 
@@ -270,6 +283,12 @@ Source Ingestion
 10. 高潮不能靠偶然替主角解决核心问题。
 11. 长项目必须更新连续性状态。
 12. 改编保留“功能与情绪承诺”，而非逐句搬运。
+13. 灾难 / 生存故事必须区分现实因果与虚构突破，灾难默认分阶段升级。
+14. 重生 / 预知必须提供可兑现的信息优势，同时维护知识边界与时间线偏差；改变越多，旧未来越不可靠。
+15. 战略性能力默认先隐藏；首次暴露必须有必要性、见证者、代价和下游后果。
+16. 囤货 / 基地建设必须检查重量、体积、运输、储存、消耗和维护，系统能力不能自动抹去物流。
+17. 主角每次重大成长应制造新的利益冲突或对手反制，并允许真实损失持续影响后续。
+18. 长期连载必须区分 Episode / Arc / Season / Saga Hook；本季解决一个尺度的问题，不一次烧完全部世界谜团。
 
 详细机制按需读取 Level 1 / Level 2 文件。
 
@@ -496,6 +515,12 @@ Premise / Audience Promise
 □ 信息与秘密状态清楚
 □ Setup / Payoff 可追踪
 □ 长项目连续性稳定
+□ 灾难 / 生存项目的 World Phase 与现实/虚构边界清楚
+□ 重生 / 预知情报有来源、价值、置信度与失效条件
+□ 系统 / 超能力的已解锁能力、限制与曝光状态可追踪
+□ 关键资源的重量、容量、运输、储存、消耗与损失合理
+□ 主角成长存在对手反制和真实代价，不是一路无损升级
+□ 长期连载已维护 Open Hooks / Future Payoffs / Season Residue
 □ 正文可见、可听、可演
 □ 用户要剧本时已真正进入剧本正文
 ~~~
