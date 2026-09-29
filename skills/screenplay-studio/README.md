@@ -42,6 +42,25 @@
 - `references/source-ingestion.md`：长篇源素材读取
 - `workflows/long-novel-to-screenplay.md`：长篇小说→剧本
 - `docs/USAGE.zh-CN.md`：中文使用手册
+- `docs/INSTALL.zh-CN.md`：安装与 ZIP 打包
+- `scripts/package_skill.py`：生成单顶层目录的可安装 Skill ZIP
+- `scripts/validate_skill.py`：结构、路径、Level 2、文件数量与大小验证
+
+## 安装包
+
+仓库根目录包含多套 Skill，因此不要直接上传整个仓库。
+
+运行：
+
+~~~bash
+python skills/screenplay-studio/scripts/package_skill.py
+~~~
+
+默认生成：
+
+`dist/screenplay-studio-2.0.0.zip`
+
+该 ZIP 只包含一个顶层目录 `screenplay-studio/` 和一个 `SKILL.md`。
 
 ## 核心边界
 
