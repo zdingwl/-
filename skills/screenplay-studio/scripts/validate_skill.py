@@ -16,11 +16,13 @@ required = [
     ROOT / "references" / "adaptation-engine.md",
     ROOT / "references" / "source-ingestion.md",
     ROOT / "references" / "project-state-continuity.md",
+    ROOT / "references" / "speculative-survival-serial-engine.md",
     ROOT / "workflows" / "long-novel-to-screenplay.md",
     ROOT / "workflows" / "story-to-screenplay.md",
     ROOT / "templates" / "Source_Index_Template.md",
     ROOT / "templates" / "Adaptation_Matrix_Template.md",
     ROOT / "templates" / "Project_State_Template.md",
+    ROOT / "templates" / "Serial_Survival_State_Template.md",
 ]
 
 for path in required:
