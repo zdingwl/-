@@ -1,0 +1,46 @@
+name: Package Screenplay Studio
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "screenplay-studio-v*"
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Validate skill
+        run: python skills/screenplay-studio/scripts/validate_skill.py
+
+      - name: Build installable ZIP
+        run: |
+          python skills/screenplay-studio/scripts/package_skill.py \
+            --output dist/screenplay-studio.zip
+
+      - name: Smoke test ZIP
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile
+
+          path = Path("dist/screenplay-studio.zip")
+          with zipfile.ZipFile(path) as zf:
+              names = zf.namelist()
+
+          assert names, "empty ZIP"
+          assert all(name.startswith("screenplay-studio/") for name in names)
+          manifests = [
+              name for name in names
+              if name.lower().endswith("/skill.md")
+          ]
+          assert manifests == ["screenplay-studio/SKILL.md"], manifests
+          print(f"ZIP smoke test passed: {len(names)} files")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenplay-studio
+          path: dist/screenplay-studio.zip
