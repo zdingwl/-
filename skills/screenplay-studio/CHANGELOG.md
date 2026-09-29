@@ -57,6 +57,16 @@
 - workflows/ 承载专项流程
 - templates/ 承载状态与项目模板
 
+### Installability & Validation
+
+- 压缩主 `SKILL.md` 为调度器式入口，详细规则按需加载。
+- 新增 `references/project-state-continuity.md`。
+- 新增 `docs/INSTALL.zh-CN.md`。
+- 新增确定性单 Skill ZIP 打包脚本 `scripts/package_skill.py`。
+- 强化 `scripts/validate_skill.py`：检查唯一 SKILL.md、引用路径、120 点完整性、文件数量与单文件大小。
+- GitHub Actions 每次主分支更新都会实际构建并打开 ZIP 做烟雾测试。
+- 当前验证包：59 个文件，Level 2 为 120/120。
+
 ## 1.0.0 — 2026-09-28
 
 首次建立 screenplay-studio 通用编剧主 Skill。
