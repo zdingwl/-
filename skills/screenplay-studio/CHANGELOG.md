@@ -1,5 +1,39 @@
 # Changelog
 
+## 2.1.0 — 2026-09-29
+
+新增“生存灾难 / 重生 / 系统 / 长线连载”逻辑层，来源于实际第一季剧本重构中暴露出的上游问题。
+
+### Speculative Survival Logic
+
+- 新增 `references/speculative-survival-serial-engine.md`。
+- 灾难默认按预警、城市功能停摆、供应链危机、社会冲突、生态异常、虚构机制显现、长期失守逐级演化。
+- 明确现实科学与虚构突破的边界，禁止用模糊科学词直接解释极端快速变化。
+- 强化重量、体积、采购、运输、仓储、消耗与维护检查。
+
+### Rebirth & System Logic
+
+- 重生必须提供可兑现的前期信息优势，同时限定知识来源。
+- 新增 Future Knowledge 与 Timeline Divergence；改变过去后旧情报必须衰减。
+- 战略能力默认隐藏，首次曝光必须有必要性与代价。
+- 新增 Capability Ledger，禁止系统临时新增无前置救场能力。
+- 升级必须由真实资源 / 模块 / 条件驱动，并增加维护成本或暴露风险。
+
+### Opposition & Serial Logic
+
+- 主角成长必须制造新的利益冲突与对手反制。
+- 引入 Opposition Ladder，区分亲属小人、掠夺者、地方势力、战略组织与世界级对抗。
+- 主角不能长期无损获胜，重大损失必须持续影响后续。
+- 新增 Episode / Arc / Season / Saga 四层 Hook。
+- 第一季不应一次解释系统来源、全部灾难真相和所有幕后势力。
+
+### Project State
+
+- 新增 `templates/Serial_Survival_State_Template.md`。
+- Project State 增加 World Phase、Resource / Capability Ledger、Secrecy / Exposure、Faction Interest、Open Hooks、Future Payoffs、Season Residue。
+- Script Doctor 与 Short Drama / Series 工作流同步增加对应检查。
+- 校验脚本把新增 reference 与 template 列入必需文件。
+
 ## 2.0.0 — 2026-09-28
 
 重大升级：把 screenplay-studio 收敛为唯一通用编剧主入口。
