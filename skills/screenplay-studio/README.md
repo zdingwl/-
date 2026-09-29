@@ -1,4 +1,4 @@
-# Screenplay Studio 2.0
+# Screenplay Studio 2.1
 
 一个统一的影视编剧 Skill。
 
@@ -21,7 +21,7 @@
 
 用户不需要先判断“该用原创 Skill 还是小说改编 Skill”。主 Skill 会根据素材规模、媒介和任务阶段自动路由。
 
-## 2.0 的核心变化
+## 2.x 的核心变化
 
 - 长篇小说改编并入主 Skill
 - 新增 Source Index / Adaptation Matrix / Knowledge State
@@ -62,7 +62,7 @@ python skills/screenplay-studio/scripts/package_skill.py
 
 默认生成：
 
-`dist/screenplay-studio-2.0.0.zip`
+`dist/screenplay-studio-2.1.0.zip`
 
 该 ZIP 只包含一个顶层目录 `screenplay-studio/` 和一个 `SKILL.md`。
 
