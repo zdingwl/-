@@ -80,3 +80,68 @@ information:
 ## Continuity
 
 每集结束更新人物知识、关系、身体状态、物件/证据/资源、时间、地点、秘密、Setup/Payoff。
+
+
+## Long-Running Hook Architecture
+
+长线连载至少区分：
+
+- Episode Hook：本集结果直接产生的下一问题。
+- Arc Hook：5–10 集阶段兑现后改变目标、规则、敌人或世界规模。
+- Season Hook：本季主问题得到回答，但留下明确 Next Season Residue。
+- Saga Hook：跨季解释的世界核心谜团。
+
+~~~yaml
+hook:
+  id:
+  planted_at:
+  surface_question:
+  hidden_question:
+  audience_knows:
+  protagonist_knows:
+  status: open | partial | paid | abandoned
+  planned_payoff:
+  payoff_horizon: episode | arc | season | multi_season
+  dependency:
+  risk_if_revealed_early:
+~~~
+
+不要第一季烧完全部世界秘密。
+
+## Escalation Is Not Just Bigger Enemies
+
+长期升级可以来自：
+
+- 资源更紧
+- 责任范围扩大
+- 组织政治复杂
+- 信息可靠度下降
+- 能力曝光
+- 对手学习
+- 伦理代价
+- 世界规则变化
+- 地理范围扩大
+- 新秩序竞争
+
+避免只靠“更大的怪物 / 更多敌人 / 更高数值”维持连载。
+
+## Growth Creates Opposition
+
+主角获得资源、基地、技术、秘密或社会影响力后，应问：
+
+- 谁因此失去利益？
+- 谁会觊觎新成果？
+- 谁开始怀疑主角？
+- 旧对手学到了什么？
+- 主角需要为增长承担什么维护成本？
+
+长期 Story Engine 优先：
+
+~~~text
+成长
+→ 被看见
+→ 被觊觎
+→ 反制
+→ 损失 / 代价
+→ 再成长
+~~~
