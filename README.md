@@ -69,6 +69,26 @@ feature / episodic_series / short_drama / animation
 
 Level 2 不一次性全部加载，而是按当前问题读取对应模块。
 
+## 安装与打包
+
+不要把整个仓库直接当成一个 Skill 安装，因为仓库内包含多套独立 Skill。
+
+Screenplay Studio 的 Skill 根目录是：
+
+`skills/screenplay-studio/`
+
+中文安装说明：
+
+`skills/screenplay-studio/docs/INSTALL.zh-CN.md`
+
+生成单 Skill ZIP：
+
+~~~bash
+python skills/screenplay-studio/scripts/package_skill.py
+~~~
+
+CI 会实际验证 ZIP 只有一个顶层 `screenplay-studio/` 目录和一个 `SKILL.md`。
+
 ## 兼容与专项 Skill
 
 仓库仍保留：
