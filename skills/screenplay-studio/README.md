@@ -31,6 +31,8 @@
 - 强化“最终必须写成戏”的输出契约
 - 强化 Project State / Story Bible / Continuity
 - 强化根因级 Script Doctor
+- 新增生存灾难 / 重生 / 系统 / 长线连载逻辑引擎
+- 新增 World Phase、Future Knowledge、Timeline Divergence、Resource / Capability Ledger、Secrecy / Exposure 与跨季 Hook 状态
 
 ## 关键入口
 
@@ -40,6 +42,8 @@
 - `references/knowledge-level2/`：120 个知识点逐条深度解析
 - `references/adaptation-engine.md`：小说/IP改编引擎
 - `references/source-ingestion.md`：长篇源素材读取
+- `references/speculative-survival-serial-engine.md`：末世 / 灾难 / 重生 / 系统 / 资源经营 / 长线连载逻辑规则
+- `templates/Serial_Survival_State_Template.md`：长期生存项目状态与伏笔模板
 - `workflows/long-novel-to-screenplay.md`：长篇小说→剧本
 - `docs/USAGE.zh-CN.md`：中文使用手册
 - `docs/INSTALL.zh-CN.md`：安装与 ZIP 打包
