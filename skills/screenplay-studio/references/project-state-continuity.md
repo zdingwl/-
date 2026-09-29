@@ -54,6 +54,17 @@ project_state:
   current_unit:
   completed_units:
   rewrite_history:
+  world_phase:
+  future_knowledge:
+  timeline_divergence:
+  resource_ledger:
+  capability_ledger:
+  secrecy_exposure:
+  opposition_ladder:
+  faction_interest:
+  open_hooks:
+  future_payoffs:
+  season_residue:
 ~~~
 
 ## 3. Character State
@@ -200,3 +211,114 @@ setup_payoff:
 重写后重新验证受影响的单元及其下游依赖。
 
 不要把旧版本已删除的事实重新混回新稿。
+
+
+## 12. World Phase
+
+灾难 / 生存项目记录：
+
+~~~yaml
+world_phase:
+  phase_name:
+  absolute_time:
+  relative_time:
+  functioning_infrastructure:
+  failing_infrastructure:
+  public_belief:
+  actual_threat:
+  next_phase_trigger:
+~~~
+
+不要让社会状态在没有事件支持时从“正常城市”瞬移到“全面废土”。
+
+## 13. Future Knowledge & Timeline Divergence
+
+重生 / 预知项目维护：
+
+~~~yaml
+future_knowledge:
+  event:
+  source:
+  confidence:
+  actionable_value:
+  current_reliability: valid | drifting | invalid
+  dependencies_changed:
+  last_checked_at:
+
+timeline_divergence:
+  changed_events:
+  saved_people:
+  removed_resources:
+  accelerated_threats:
+  delayed_threats:
+  invalidated_future_knowledge:
+~~~
+
+改变过去后，必须重新验证依赖该过去的未来情报。
+
+## 14. Resource & Capability Ledger
+
+资源记录数量、单位、位置、容量、日消耗、补给、损失和知情者。
+
+系统 / 超能力记录已解锁时间、输入、输出、限制、成本、可见性、知情者和明确不能做什么。
+
+禁止资源或能力为了剧情方便自动恢复 / 自动新增。
+
+## 15. Secrecy / Exposure
+
+~~~yaml
+secrecy_exposure:
+  secret:
+  cover_story:
+  confirmed_witnesses:
+  suspicious_characters:
+  factions_with_evidence:
+  current_exposure_level:
+  first_public_use:
+  consequences:
+~~~
+
+角色是否公开底牌必须由收益和风险驱动。
+
+## 16. Opposition Ladder / Faction Interest
+
+每个对手记录：
+
+- 为什么注意主角
+- 想得到什么
+- 已经知道什么
+- 当前误判什么
+- 上一次策略为什么失败
+- 下一次如何适应
+- 已造成什么真实损失
+
+避免“作者需要阻碍，所以随机出现坏人”。
+
+## 17. Open Hooks / Future Payoffs
+
+长期连载记录：
+
+~~~yaml
+hook:
+  id:
+  planted_at:
+  surface_question:
+  hidden_question:
+  status: open | partial | paid | abandoned
+  planned_payoff:
+  payoff_horizon:
+  dependency:
+  risk_if_revealed_early:
+~~~
+
+季终同步记录：
+
+- resolved_this_season
+- intentionally_unresolved
+- changed_world_rules
+- next_season_pressure
+- multi_season_mysteries
+
+模板：
+
+- `../templates/Serial_Survival_State_Template.md`
