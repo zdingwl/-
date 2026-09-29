@@ -23,3 +23,46 @@ jobs:
         run: |
           python skills/screenplay-studio/scripts/validate_skill.py
           python skills/overseas-short-drama-screenwriter/scripts/validate_skill.py
+
+      - name: Package screenplay-studio
+        run: |
+          python skills/screenplay-studio/scripts/package_skill.py \
+            --output dist/screenplay-studio.zip
+
+      - name: Smoke test installable ZIP
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile
+
+          path = Path("dist/screenplay-studio.zip")
+          assert path.exists(), "package was not created"
+
+          with zipfile.ZipFile(path) as zf:
+              names = zf.namelist()
+
+          assert names, "empty ZIP"
+          assert all(
+              name.startswith("screenplay-studio/")
+              for name in names
+          ), "ZIP contains files outside screenplay-studio/"
+
+          top_levels = {name.split("/", 1)[0] for name in names}
+          assert top_levels == {"screenplay-studio"}, top_levels
+
+          manifests = [
+              name for name in names
+              if name.lower().endswith("/skill.md")
+          ]
+          assert manifests == [
+              "screenplay-studio/SKILL.md"
+          ], manifests
+
+          print(
+              "installable ZIP passed:",
+              len(names),
+              "files",
+              path.stat().st_size,
+              "bytes",
+          )
+          PY
