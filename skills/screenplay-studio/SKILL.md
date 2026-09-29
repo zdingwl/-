@@ -8,7 +8,7 @@ description: >
   用户要求写剧本时，最终交付必须是可见、可听、可演的场景、动作和完整对白。
 ---
 
-# Screenplay Studio 2.0
+# Screenplay Studio 2.1
 
 ## 1. 使命
 
